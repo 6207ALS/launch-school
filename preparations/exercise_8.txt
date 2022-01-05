@@ -1,0 +1,6 @@
+1. The following would be appropriate names for constants used to 
+represent magic numbers
+    - BIG_NUMBER
+
+We use SCREAMING_SNAKE_CASE for constants that represent magic numbers,
+constants that are important to the program.
