@@ -1,0 +1,8 @@
+1. The following names would be appropriate function names
+    - index
+    - lazyDog
+    - operand2
+    - CatName
+
+Function names follow camelCase formatting, constructor functions use 
+PascalCase formatting.
