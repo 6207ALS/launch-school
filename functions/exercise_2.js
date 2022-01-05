@@ -4,7 +4,7 @@ let rlSync = require('readline-sync');
 // respectively.
 
 let askFirstName = () => rlSync.question("What is your first name? ");
-let askLastName =  () => rlSync.question("What is your last name? ");
+let askLastName = () => rlSync.question("What is your last name? ");
 
 firstName = askFirstName();     // saves user's inputs
 lastName = askLastName();
