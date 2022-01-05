@@ -1,0 +1,8 @@
+1. Running 'foo.js' with the node command outputs 'bar', the string literal we set to the variable foo.
+
+2. Each line of code, using the node REPL, has its own output. The first line outputs undefined. The second
+line logs "bar" to the console, which is the value set to the "foo" variable. The third returns the value of 
+the "foo" variable: 'bar". 
+
+3. Unlike the node REPL, the Chrome console REPL does not have an output for every line. Though, it will 
+output 'bar' from the console.log statement. 
