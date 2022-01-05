@@ -1,0 +1,8 @@
+1. The following names would be appropriate variable names:
+    - index
+    - lazyDog
+    - operand2
+
+The general rule for variable names is to use camelCase formatting, 
+the first word starts with a lowercase and subsequent words start
+with capital letters. 
