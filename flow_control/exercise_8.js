@@ -1,3 +1,7 @@
+// The following function will determine if the passed argument is
+// 1) between 0 and 50 (inclusive), 2) between 51 and 100 (inclusive),
+// 3) greater than 100, or 4) less than 0. 
+
 function numberRange(num) {
   if (num >= 0 && num <= 50) {
     console.log(`${num} is between 0 and 50`);
