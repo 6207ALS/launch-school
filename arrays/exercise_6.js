@@ -1,6 +1,6 @@
 // The oddLengths function determines the length of each string element 
 // in a given array and returns an array of only string lengths 
-// with an even value. 
+// with an odd value. 
 
 function oddLengths(arr) {
   let stringLength = arr.map(string => string.length)
