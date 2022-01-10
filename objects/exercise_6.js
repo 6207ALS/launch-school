@@ -11,7 +11,7 @@
 
 /*
 Of the values above, 1, 2, 4, and 7 are primitive values. They are a 
-string, number, boolean, and undefined, respectively. Values 3 and 8
-are an array and an object, respectively. The remaining (5 and 6) are
-neither primitive values nor objects. 
+string, number, boolean, and undefined, respectively. Value 3 is an 
+an array, values 6 and 8 are objects. Functions are considered objects.
+The remaining (value 5) is neither a primitive value nor an object. 
 */
