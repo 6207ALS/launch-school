@@ -5,7 +5,7 @@ number.
 */
 
 function isOdd(integer) {
-    return Math.abs(integer) % 2 === 1? true:false;
+    return Math.abs(integer) % 2 === 1;
 }
 
 // test cases
