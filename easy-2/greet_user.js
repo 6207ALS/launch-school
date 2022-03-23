@@ -8,7 +8,8 @@ let rlSync = require('readline-sync');
 let userInput = rlSync.question("What is your name? ");
 
 if (userInput[userInput.length - 1] === "!") {
-  console.log(`HELLO, ${userInput.toUpperCase()}. WHY ARE WE SCREAMING?`);
+  let name = userInput.slice(0,-1);
+  console.log(`HELLO, ${name.toUpperCase()}. WHY ARE WE SCREAMING?`);
 } else {
   console.log(`Hello, ${userInput}.`);
 }
