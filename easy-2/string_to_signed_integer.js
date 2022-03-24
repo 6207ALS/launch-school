@@ -10,8 +10,6 @@ The function uses a switch expression to determine if the first character of the
 string is a sign.  
 */
 
-
-
 function stringToInteger(string) {
   let length = string.length;
   let num = 0;
