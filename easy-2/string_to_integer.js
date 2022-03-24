@@ -17,7 +17,6 @@ function stringToInteger(string) {
     num += charToNum * (10 ** (length - 1));
     length--;
   }
-  console.log(num);
   return num;
 }
 
