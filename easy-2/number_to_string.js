@@ -12,11 +12,11 @@ function integerToString (number) {
   let arrayOfDigits = []
   do {
     let onesDigit = number % 10;
-    arr.unshift(onesDigit);
+    arrayOfDigits.unshift(onesDigit);
     number = Math.floor(number / 10);
   } while (number > 0)
 
-  return arr.join('');
+  return arrayOfDigits.join('');
 }
 
 // test cases
