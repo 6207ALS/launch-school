@@ -1,6 +1,10 @@
 /*
 The crunch function takes the provided string argument and returns the value
-with all consecutive duplicative characters collapsed into a single character. 
+with all consecutive duplicative characters collapsed into a single character.
+
+The function iterates over each character of the string argument. If the current
+character is not the same as the previous character — meaning it is not a 
+consecutive duplicate character — then it is added to the "crunched" string. 
 */
 
 function crunch(string) {
