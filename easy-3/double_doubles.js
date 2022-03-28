@@ -1,4 +1,11 @@
-function twice (number) { // 103103
+/*
+A double number is an even-length number whose left-side digits are exactly the 
+same as its right-side digits.The twice function returns the number provided as
+the argument multiplied by two, unless the argument is a double number; 
+otherwise, it will return the double number as-is.
+*/
+
+function twice (number) {
     let num = String(number);
     
     if (num.length % 2 === 0){
@@ -12,6 +19,7 @@ function twice (number) { // 103103
     }
 }
 
+// test cases
 console.log(twice(37));          // 74
 console.log(twice(44));          // 44
 console.log(twice(334433));      // 668866
