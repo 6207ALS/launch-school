@@ -14,7 +14,7 @@ function union (arr1, arr2) {
   let uniqueArr = []
 
   arr.forEach(element => {
-      if (!uniqueArr.includes(element)) uniqueArr.push(element);
+    if (!uniqueArr.includes(element)) uniqueArr.push(element);
   });
   return uniqueArr.sort();
 }

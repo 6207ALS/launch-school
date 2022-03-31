@@ -13,11 +13,11 @@ array.
 function halvsies (arr) {
   let halfArrays = [];
   if (arr.length % 2 === 0) {
-      halfArrays.push(arr.slice(0, arr.length / 2));
-      halfArrays.push(arr.slice((arr.length / 2), arr.length));
+    halfArrays.push(arr.slice(0, arr.length / 2));
+    halfArrays.push(arr.slice((arr.length / 2), arr.length));
   } else {
-      halfArrays.push(arr.slice(0, Math.ceil(arr.length / 2)));
-      halfArrays.push(arr.slice(Math.ceil(arr.length / 2), arr.length));
+    halfArrays.push(arr.slice(0, Math.ceil(arr.length / 2)));
+    halfArrays.push(arr.slice(Math.ceil(arr.length / 2), arr.length));
   }
   return halfArrays;
 }
