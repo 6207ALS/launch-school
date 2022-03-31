@@ -10,13 +10,13 @@ unique value to a new array.
 */
 
 function union (arr1, arr2) {
-    let arr = arr1.concat(arr2);
-    let uniqueArr = []
+  let arr = arr1.concat(arr2);
+  let uniqueArr = []
 
-    arr.forEach(element => {
-        if (!uniqueArr.includes(element)) uniqueArr.push(element);
-    });
-    return uniqueArr.sort();
+  arr.forEach(element => {
+      if (!uniqueArr.includes(element)) uniqueArr.push(element);
+  });
+  return uniqueArr.sort();
 }
 
 // test cases

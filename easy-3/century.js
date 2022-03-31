@@ -11,31 +11,31 @@ followed with the "th" suffix.
 */
 
 function century (number) {
-    let century = Math.ceil(number / 100);
-    let last2Digits = century % 100;
-    let lastDigit = century % 10;
+  let century = Math.ceil(number / 100);
+  let last2Digits = century % 100;
+  let lastDigit = century % 10;
 
-    century = String(century);
-    if (last2Digits === 11 || last2Digits === 12 || last2Digits === 13) {
+  century = String(century);
+  if (last2Digits === 11 || last2Digits === 12 || last2Digits === 13) {
+    century += 'th';
+  } else {
+    switch (lastDigit) {
+      case 1:
+        century += 'st';
+        break;
+      case 2:
+        century += 'nd';
+        break;
+      case 3:
+        century += 'rd';
+        break;
+      default:
         century += 'th';
-    } else {
-        switch (lastDigit) {
-            case 1:
-                century += 'st';
-                break;
-            case 2:
-                century += 'nd';
-                break;
-            case 3:
-                century += 'rd';
-                break;
-            default:
-                century += 'th';
-                break;
-        }    
-    }
-    
-    return century;
+        break;
+    }    
+  }
+  
+  return century;
 }
 
 // test cases

@@ -12,16 +12,16 @@ single word. The original word is reassigned the new word.
 */
 
 function swap (string) {
-    words = string.split(' ');
-    for (word of words) {
-        let chars = word.split('');
-        let first = chars[0];
+  words = string.split(' ');
+  for (word of words) {
+    let chars = word.split('');
+    let first = chars[0];
 
-        chars[0] = chars[chars.length - 1];
-        chars[chars.length - 1] = first;
-        words[words.indexOf(word)] = chars.join('');
-    }
-    return words.join(' ');
+    chars[0] = chars[chars.length - 1];
+    chars[chars.length - 1] = first;
+    words[words.indexOf(word)] = chars.join('');
+  }
+  return words.join(' ');
 }
 
 // test cases

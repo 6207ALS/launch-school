@@ -13,14 +13,14 @@ decimal portion of the number of minutes by 60.
 */
 
 function dms (float) {
-    let degree = Math.floor(float);
-    let minutes = Math.floor((float - degree) * 60);
-    let seconds = Math.floor(((float - degree) * 60 - minutes) * 60);
+  let degree = Math.floor(float);
+  let minutes = Math.floor((float - degree) * 60);
+  let seconds = Math.floor(((float - degree) * 60 - minutes) * 60);
 
-    let formattedMinutes = String(minutes).padStart(2, '0');
-    let formattedSeconds = String(seconds).padStart(2, '0');
-    let string = `${degree}˚${formattedMinutes}'${formattedSeconds}"`;
-    return string
+  let formattedMinutes = String(minutes).padStart(2, '0');
+  let formattedSeconds = String(seconds).padStart(2, '0');
+  let string = `${degree}˚${formattedMinutes}'${formattedSeconds}"`;
+  return string
 }
 
 // test cases

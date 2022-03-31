@@ -6,11 +6,11 @@ isPalindrome function (from exercise "Easy 4: Palindromic Strings (Part 1").
 */
 
 function isPalindrome (string) {
-    return string === string.split('').reverse().join('');
+  return string === string.split('').reverse().join('');
 }
 
 function isPalindromicNumber (number) {
-    return isPalindrome(String(number));
+  return isPalindrome(String(number));
 }
 
 // test cases

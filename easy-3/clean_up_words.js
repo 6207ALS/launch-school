@@ -13,20 +13,20 @@ letters are identical AND alphabetical. If they are, both letters are added.
 */
 
 function cleanUp (string) {
-    string = string.replace(/[^a-z\s]/ig, ' ');
-    let cleanString = '';
-    let previousChar;
+  string = string.replace(/[^a-z\s]/ig, ' ');
+  let cleanString = '';
+  let previousChar;
 
-    for (currentChar of string) {
-        if (currentChar !== previousChar) {
-            cleanString += currentChar;
-        } else if (/[a-z]/i.test(currentChar)) {
-            cleanString += currentChar;
-        }
-        previousChar = currentChar;
+  for (currentChar of string) {
+    if (currentChar !== previousChar) {
+      cleanString += currentChar;
+    } else if (/[a-z]/i.test(currentChar)) {
+      cleanString += currentChar;
     }
+    previousChar = currentChar;
+  }
 
-    return cleanString;
+  return cleanString;
 }
 
 // test cases

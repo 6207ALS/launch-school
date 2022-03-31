@@ -9,7 +9,7 @@ elements, and rejoining the elements back together.
 */
 
 function isPalindrome (string) {
-    return string === string.split('').reverse().join('');
+  return string === string.split('').reverse().join('');
 }
 
 // test cases

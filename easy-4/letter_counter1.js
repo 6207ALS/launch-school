@@ -9,20 +9,20 @@ the key by 1; if not, the length is added to the object as a key property.
 */
 
 function wordSizes (string) {
-    let wordSizeList = {};
-    let words = string.split(' ');
+  let wordSizeList = {};
+  let words = string.split(' ');
 
-    for (element of words) {
-        if (!!element) {
-            length = String(element.length);
-            if (length in wordSizeList) {
-                wordSizeList[length] += 1;
-            } else {
-                wordSizeList[length] = 1;
-            }
-        }       
-    }
-    return wordSizeList;
+  for (element of words) {
+    if (!!element) {
+      let length = String(element.length);
+      if (length in wordSizeList) {
+        wordSizeList[length] += 1;
+      } else {
+        wordSizeList[length] = 1;
+      }
+    }       
+  }
+  return wordSizeList;
 }
 
 // test cases

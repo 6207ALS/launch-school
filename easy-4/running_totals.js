@@ -10,9 +10,9 @@ finds the sum of every element from index 0 to that of the current element.
 */
 
 function runningTotal(arr) {
-    return arr.map((element, index) => {
-        return arr.slice(0, index + 1).reduce((acc, element) => acc + element);
-    });
+  return arr.map((element, index) => {
+    return arr.slice(0, index + 1).reduce((acc, element) => acc + element);
+  });
 }
 
 // test cases

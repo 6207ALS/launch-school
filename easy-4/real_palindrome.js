@@ -10,12 +10,12 @@ if the newly filtered string is a palindrome.
 */
 
 function isPalindrome (string) {
-    return string === string.split('').reverse().join('');
+  return string === string.split('').reverse().join('');
 }
 
 function isRealPalindrome (string) {
-    let cleanString = string.replace(/[^a-z0-9]/ig,'').toLowerCase();
-    return isPalindrome(cleanString);
+  let cleanString = string.replace(/[^a-z0-9]/ig,'').toLowerCase();
+  return isPalindrome(cleanString);
 }
 
 // test cases

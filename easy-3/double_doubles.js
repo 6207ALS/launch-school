@@ -6,17 +6,17 @@ otherwise, it will return the double number as-is.
 */
 
 function twice (number) {
-    let num = String(number);
-    
-    if (num.length % 2 === 0){
-        let halfIndex = num.length / 2;
-        for (let i = 0; i < halfIndex; i++) {
-            if (num[i] !== num[i + halfIndex]) return number * 2;
-        }
-        return number;
-    } else {
-        return number * 2;
+  let num = String(number);
+  
+  if (num.length % 2 === 0){
+    let halfIndex = num.length / 2;
+    for (let i = 0; i < halfIndex; i++) {
+      if (num[i] !== num[i + halfIndex]) return number * 2;
     }
+    return number;
+  } else {
+    return number * 2;
+  }
 }
 
 // test cases

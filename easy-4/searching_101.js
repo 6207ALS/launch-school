@@ -15,7 +15,7 @@ arrNums.push(Number(rlSync.question('Enter the 5th number: ')));
 let lastNum = Number(rlSync.question('Enter the last number: '));
 
 if (arrNums.includes(lastNum)) {
-    console.log(`The number ${lastNum} appears in ${arrNums}.`);
+  console.log(`The number ${lastNum} appears in ${arrNums}.`);
 } else {
-    console.log(`The number ${lastNum} does not appear in ${arrNums}.`);
+  console.log(`The number ${lastNum} does not appear in ${arrNums}.`);
 }

@@ -8,21 +8,21 @@ counting word sizes with the .replace method.
 */
 
 function wordSizes (string) {
-    let wordSizeList = {};
-    string = string.replace(/[^a-z0-9\s]/ig, '');
-    let words = string.split(' ');
+  let wordSizeList = {};
+  string = string.replace(/[^a-z0-9\s]/ig, '');
+  let words = string.split(' ');
 
-    for (element of words) {
-        if (!!element) {
-            length = String(element.length);
-            if (length in wordSizeList) {
-                wordSizeList[length] += 1;
-            } else {
-                wordSizeList[length] = 1;
-            }
-        }       
-    }
-    return wordSizeList;
+  for (element of words) {
+    if (!!element) {
+      let length = String(element.length);
+      if (length in wordSizeList) {
+        wordSizeList[length] += 1;
+      } else {
+        wordSizeList[length] = 1;
+      }
+    }       
+  }
+  return wordSizeList;
 }
 
 // test cases
