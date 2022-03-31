@@ -6,9 +6,10 @@ quote (') to represent minutes, and a double quote (") to represent seconds.
 There are 60 minutes in a degree, and 60 seconds in a minute.
 
 The function determines the degree by returning the largest integer less than or
-equal to the given float (Math.floor). The minutes are determined by multiplying
-the decimal portion of the float by 60. The seconds are determined by 
-multiplying the number of minutes by 60.
+equal to the given float (Math.floor). The minutes (rounded to the nearest 
+minute) are determined by multiplying the decimal portion of the float by 60. 
+The seconds (rounded to the nearest second) are determined by multiplying the 
+decimal portion of the number of minutes by 60.
 */
 
 function dms (float) {
