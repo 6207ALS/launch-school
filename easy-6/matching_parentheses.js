@@ -3,7 +3,7 @@ The isBalanced function takes a string as an argument and returns true if all
 parentheses in the string are properly balanced, false otherwise. To be properly
 balanced, parentheses must occur in matching '(' and ')' pairs.
 
-The function first removes all non-parenthese characters from the string. In
+The function first removes all non-parenthesis characters from the string. In
 a while loop, the function repeatedly removes every pair of '(' and ')' 
 characters from the string. A pair exists only if a ')' character exists 
 anywhere after the first occuring '(' character. If there isn't, the loop ends. 
