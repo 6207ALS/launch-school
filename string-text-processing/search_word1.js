@@ -5,15 +5,17 @@ text. It is assumed that the word and text inputs will always be provided, and
 that all words are separated by spaces. Thus, some words will include 
 punctuation such as periods and commas.
 
-The function splits the words of the text into an array and iterates over each
-element. If the element (lowercased) does not contain the word argument, it is 
-removed from the array. The final length of the array is returned.   
+The function constructs a new Regular Expression object that contains the 
+provided word argument as the regex pattern. The pattern considers any global, 
+case-insensitive version of the word argument. The function then passes the
+regex to the .match() method, which returns a list of any matches of the regular
+expression in the text. The length of the list of matches is returned. 
 */
 
 function searchWord (word, text) {
-  let words = text.split(' ');
-  words = words.filter(element => element.toLowerCase().includes(word));
-  return words.length;
+  let regex = new RegExp(word, 'ig');
+  let words = text.match(regex, text);
+  return words ? words.length: 0;
 }
 
 // test cases
