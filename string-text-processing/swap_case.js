@@ -7,15 +7,15 @@ The function first initializes an empty string literal. It then iterates through
 every character of the string. If the character is uppercased, the lowercased 
 character is added to the string. If the character is lowercased, the uppercased
 character is added to the string. If the character is neither (implying the 
-character is not alphabetical) the character is added unchanged. 
+character is not alphabetical) the character is added unchanged.
 */
 
 function swapCase (string) {
   let swappedCases = '';
   for (character of string) {
-    if (character !== character.toUpperCase()) {
+    if (/[a-z]/.test(character)) {
       swappedCases += character.toUpperCase();
-    } else if (character !== character.toLowerCase()) {
+    } else if (/[A-Z]/.test(character)) {
       swappedCases += character.toLowerCase();
     } else {
       swappedCases += character;
