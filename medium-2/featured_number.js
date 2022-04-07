@@ -9,8 +9,9 @@ The function begins with the next odd integer of the given argument. It then
 checks if every odd number, starting from the given argument, is a featured 
 number. Every odd number is checked to see if it is a multiple of 7 and has all 
 unique digits. To determine if the number has all unique digits, every unique
-digit is extracted to an array and compared to the original number. If they are
-the same, the original number has all unique digits.  
+digit is extracted to an array and the combined digits are compared to the 
+original number. If they are the same, the original number has all unique 
+digits.  
 */
 
 function featured (num) {
