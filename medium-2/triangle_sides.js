@@ -16,15 +16,11 @@ function triangle (a, b, c) {
   let [side1, side2, side3] = [a, b, c].sort((x, y) => x - y)
 
   for (length of [side1, side2, side3]) {
-    if (length <= 0) {
-      return "invalid";
-    }
-  }
-  
-  if (!(side1 + side2 > side3)) {
-    return "invalid";
+    if (length <= 0) return "invalid";
   }
 
+  if (!(side1 + side2 > side3)) return "invalid";
+  
   if (side1 === side2 && side2 === side3) {
     return "equilateral";
   } else if (side1 === side2 || side1 === side3 || side2 === side3) {
