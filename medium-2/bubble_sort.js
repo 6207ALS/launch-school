@@ -4,35 +4,27 @@ the bubble sort algorithm. The sorting is done "in-place" — that is, the
 function mutates the array. It is assumed that the array contains at least
 two elements.
 
-The function places the bubble sorting algorithm into a while-loop, stopping it
-when the array is sorted from least to greatest values. For each while-loop, a 
-for-loop iterates over each index of the arr. If the value at the current index
-is greater than the value at the next index, the function swaps the two values.
-
-The isSorted function is called at every while-loop to check if the array is 
-sorted. It iterates over each element of the array; if the value is greater than
-the following value, false is returned. If it iterates over the entire array, 
-the array is sorted, returning true. 
+The function places the bubble sorting algorithm into a do-while loop, stopping 
+it if the loop did not swap any elements of the array. For each while loop, 
+a for loop iterates over each index of the arr. If the value at the current 
+index is greater than the value at the next index, the function swaps the two 
+values.
 */
 
 function bubbleSort (arr) {
-  while (!isSorted(arr)) {
+  let swapped;
+  do {
+    swapped = false;
     for (let i = 0; i < arr.length - 1; i++) {
       if (!(arr[i] < arr[i + 1])) {
         let temp = arr[i];
         arr[i] = arr[i + 1];
         arr[i + 1] = temp;
+        swapped = true;
       }
     }
-  }
+  } while (swapped)
   return arr; 
-}
-
-function isSorted (arr) {
-  for (let i = 0; i < arr.length - 1; i++) {
-    if (!(arr[i] < arr[i + 1])) return false;
-  }
-  return true;
 }
 
 // test cases
