@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/6207ALS/js101-small-problems#readme",
   "dependencies": {
+    "fraction.js": "github:infusion/Fraction.js",
     "readline-sync": "^1.4.10"
   }
 }
