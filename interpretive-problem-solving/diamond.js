@@ -18,7 +18,7 @@ function diamond (n) {
   let num = 1;
   while (num > 0) {
     asteriskSequence.push(num);
-    if (num === n) increment = -2
+    if (num === n) increment = -2;
     num += increment;
   }
   
