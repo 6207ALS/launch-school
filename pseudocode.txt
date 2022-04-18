@@ -1,0 +1,91 @@
+/*
+The following are pseudocodes for different functions. Each function uses 
+several keywords that indicate a specific action / operation. 
+*/
+
+// Function that takes two numbers and returns their sum
+
+START
+
+# given two numbers
+
+RETURN num1 + num2
+
+END
+
+
+// Function that takes a list of strings and returns a single string of all the
+// strings concatenated
+
+START
+
+# given list of strings
+
+RETURN list.join(' ')
+
+END
+
+
+// Function that takes an array of integers and returns a new array with every
+// other element from the original array, starting with the first element
+
+START
+
+# given an array of integers
+
+SET newArray = []
+
+FOR integer of array  
+  IF index is odd
+    newArray.push(integer)
+
+RETURN newArray
+
+END
+
+
+// Function that determines the index of the 3rd occurrence of a given character
+// in a string. For instance, if the given character is 'x' and the string is 
+// 'axbxcdxex', the function returns 6 (the index of the 3rd 'x'). If the given 
+// character does not occur at least 3 times, return null.
+
+START 
+
+# given a string and a character
+
+SET count = 0
+
+FOR character of string
+  IF character === given character
+    count++
+  IF count === 3
+    RETURN string.indexOf(character)
+
+RETURN null;
+
+END
+
+
+// Function that takes two arrays of numbers and returns the result of merging 
+// the arrays. The elements of the first array should become the elements at the
+// even indexes of the returned array, while the elements of the second array 
+// should become the elements at the odd indexes.
+
+START 
+
+# given two arrays, arr1 and arr2
+
+SET newArr = []
+SET newArr length to arr1 and arr2 combined
+
+FOR let i = 0; i < newArr.length; i++
+	IF i is even
+		REMOVE first element of arr1
+		PUSH element to newArr
+	ELSE 
+		REMOVE first element of arr2
+		PUSH element to newArr
+
+RETURN newArr
+
+END
