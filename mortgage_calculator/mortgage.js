@@ -19,11 +19,6 @@ function validNumber (string) {
   return !!Number(string) && Number(string) >= 0;
 }
 
-// determine if a given string is a valid Number and greater than 0
-function validTime (string) {
-  return validNumber(string) && parseInt(string, 10) > 0;
-}
-
 // continuously prompt user for formula values if any are invalid inputs
 function retrieveVariables () {
   let principal, apr, timeYrs;
@@ -40,8 +35,8 @@ function retrieveVariables () {
 
   do {
     timeYrs = prompt(messages.time).replaceAll(' ', '');
-    if (!validTime(timeYrs)) console.log(messages.errorTime);
-  } while (!validTime(timeYrs));
+    if (!validNumber(timeYrs)) console.log(messages.errorTime);
+  } while (!validNumber(timeYrs));
 
   return [principal, apr, timeYrs];
 }
