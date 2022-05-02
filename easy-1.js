@@ -32,7 +32,7 @@ arrays. The index of the last character of a string is the string's length - 1.
 The lastCharIsExclamation function returns the boolean value when comparing the 
 last character of a string to the exclamation character. 
 
-OR we can simply used the .endsWith("!") method on the string. The method
+OR we can simply use the .endsWith("!") method on the string. The method
 determines whether a string ends with the characters of a specified string.
 */
 
