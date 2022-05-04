@@ -1,5 +1,5 @@
 /*
-Answers for JS101 - Lesson 3, Practice Problems: Easy 3
+Answers for JS101 - Lesson 3, Practice Problems: Medium 1
 */
 
 // Q1
