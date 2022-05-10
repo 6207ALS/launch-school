@@ -1,0 +1,11 @@
+{
+  "greeting": "Welcome to Mortgage Calculator!",
+  "amount": "Please provide the loan amount in U.S. Dollars($):\n",
+  "rate": "Please provide the Annual Percentage Rate (APR):\n",
+  "time": "Please provide loan duration in years: \n",
+  "result": "The monthly mortgage payment is ",
+  "continue": "Would you like to continue? (y/n) \n",
+  "errorPrincipal": "You must enter a positive loan amount.",
+  "errorRate": "You must enter a positive interest value.",
+  "errorTime": "You must enter a positive loan term."
+}

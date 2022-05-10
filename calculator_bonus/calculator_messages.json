@@ -1,0 +1,24 @@
+{
+  "language": "Enter your preferred language: en (english) / es (español)",
+  "en": {
+    "greeting": "Welcome to Calculator!",
+    "num1": "What's the first number?",
+    "num2": "What's the second number?",
+    "operations": [
+      "What operation would you like to perform?\n",
+      "1) Add \n2) Subtract \n3) Multiply \n4) Divide"
+    ],
+    "continue": "Would you like to continue? (y/n)"
+  },
+
+  "es": {
+    "greeting": "Bienvenido a la calculadora!",
+    "num1": "¿Cuál es el primer número?",
+    "num2": "¿Cuál es el segundo número?",
+    "operations": [
+      "¿Qué operación le gustaría realizar?\n",
+      "1) Sumar \n2) Restar \n3) Multiplicar \n4) Dividir"
+    ],
+    "continue":"¿Te gustaria continuar? (y/n)"
+  }
+}
