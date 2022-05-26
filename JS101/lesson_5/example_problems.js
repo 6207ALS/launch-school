@@ -1,5 +1,5 @@
 /*
-Answers for JS101 - Lesson 4, Example Problems
+Answers for JS101 - Lesson 5, Example Problems
 */
 
 
