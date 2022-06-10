@@ -1,10 +1,13 @@
 /*
+twenty-one.js is a program of the game Twenty-One. The first to reach five wins,
+computer vs. user, is determined as the winner. Each round is played as follows:
+each player has a turn
 
 */
 
 let rlSync = require('readline-sync');
 
-
+// properties of a standard 52-card deck
 const POINTS = {goal: 21, minimum: 17};
 const SUITS = ["Hearts", "Diamonds", "Clubs", "Spades"];
 const NUMBER_VALUES = [2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -19,6 +22,8 @@ function prompt(msg) {
   console.log(`\n==> ${msg}`);
 }
 
+// declare an object that represents a standard deck. Each suit is assigned 13 
+// cards, for a total of 52 cards. 
 function initializeDeck() {
   let deck = {};
   let suitCards = NUMBER_VALUES.concat(Object.entries(FACE_VALUES));
@@ -31,6 +36,7 @@ function initializeDeck() {
   return deck;
 }
 
+// shuffles an array of cards using the Fisher-Yates shuffle method. 
 function shuffle(cards) {
   for (let index = cards.length - 1; index > 0; index--) {
     let otherIndex = Math.floor(Math.random() * (index + 1));
@@ -38,6 +44,8 @@ function shuffle(cards) {
   }
 }
 
+// pops a card from the deck and pushes the card's information into the given 
+// hand. 
 function deal(hand, deck, times) {
   let randSuit;
   let randCard;
@@ -59,6 +67,9 @@ function deal(hand, deck, times) {
   }
 }
 
+// player is given the option to hit or stay until their hand busts. If the user
+// chooses hit, a card is dealed to their hand. If the user chooses stay, the 
+// player's turn ends. 
 function playerTurn(playerHand, dealerHand, deck, score) {
   let playerInput;
 
@@ -75,10 +86,15 @@ function playerTurn(playerHand, dealerHand, deck, score) {
   }
 }
 
+// determines if a given hand is busted. A busted hand is a hand with a total 
+// value greater than 21.  
 function busted(hand) {
   return handTotal(hand) > POINTS["goal"];
 }
 
+// calculates the total value of a given hand. The function accounts for ace 
+// cards, which can have a value of 1 or 11, depending on if the value of 11 
+// causes a busted hand. 
 function handTotal(hand) {
   let nonAceCards = hand.filter(card => card[0] !== 'Ace');
   let aceCards = hand.filter(card => card[0] === 'Ace');
@@ -102,6 +118,8 @@ function handTotal(hand) {
   return total;
 }
 
+// displays the player's hand and dealer's hand. If the third argument is true, 
+// the dealer's second card is hidden. 
 function showHands(dealerHand, playerHand, hidden) {
 
   let dealerCards = dealerHand.map((card, index) => {
@@ -118,6 +136,8 @@ function showHands(dealerHand, playerHand, hidden) {
   console.log(`You have: ${playerCards}`);
 }
 
+// prompts the user to hit or stay. It continously prompts the user for a valid
+// input if not given one.
 function playerChoice() {
   let hitOptions = ['h', 'hit'];
   let stayOptions = ['s', 'stay'];
@@ -132,12 +152,17 @@ function playerChoice() {
   return hitOptions.includes(userInput) ? 'hit' : 'stay';
 }
 
+// dealer continues to deal a card to its hand until its hand total is at least
+// 17. 
 function dealerTurn(dealerHand, deck) {
   while (handTotal(dealerHand) < POINTS["minimum"]) {
     deal(dealerHand, deck, 1);
   }
 }
 
+// determines the winner of the two hands based on their scores. If either 
+// player busts, the other player wins. If neither busts, the player with the 
+// higher score wins. 
 function decideWinner(playerScore, dealerScore) {
   let result = {
     message: undefined,
@@ -164,21 +189,22 @@ function decideWinner(playerScore, dealerScore) {
   return result;
 }
 
+// displays a formatted message of the winner, along with the players' scores. 
 function displayWinner(playerHand, dealerHand, score) {
-  let playerScore = handTotal(playerHand);
-  let dealerScore = handTotal(dealerHand);
-  let roundScore = `PLAYER'S SCORE: ${playerScore} | DEALER'S SCORE: ${dealerScore}`;
-  roundScore = "|    " + roundScore + "    |";
-  let result = decideWinner(playerScore, dealerScore);
-  let spaceLength = Math.floor((roundScore.length - result["message"].length) / 2);
-  let space = " ".repeat(spaceLength);
+  let pScore = handTotal(playerHand);
+  let dScore = handTotal(dealerHand);
+  let board = `PLAYER'S SCORE: ${pScore} | DEALER'S SCORE: ${dScore}`;
+  board = "|    " + board + "    |";
+  let result = decideWinner(pScore, dScore);
+  let gapLength = Math.floor((board.length - result["message"].length) / 2);
+  let space = " ".repeat(gapLength);
 
   displayScore(score);
   showHands(dealerHand, playerHand, false);
   console.log("");
-  console.log("-".repeat(roundScore.length));
-  console.log(roundScore);
-  console.log("-".repeat(roundScore.length));
+  console.log("-".repeat(board.length));
+  console.log(board);
+  console.log("-".repeat(board.length));
   console.log(space + result["message"]);
   console.log("");
 
