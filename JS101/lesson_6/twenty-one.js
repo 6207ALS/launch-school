@@ -240,6 +240,7 @@ function playGame() {
     rlSync.question("PRESS ENTER TO CONTINUE");
   }
 
+  console.clear();
   if (score["player"] === 5) {
     console.log("CONGRATULATIONS! PLAYER WINS THE GAME!");
   } else {
