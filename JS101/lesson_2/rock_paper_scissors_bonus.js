@@ -116,7 +116,7 @@ function game () {
   };
 
   while (userWins < 3 && computerWins < 3) {
-    console.log("\n\n" + scoreboard());
+    console.log(scoreboard());
     let result = round();
 
     if (result === true) {
@@ -144,6 +144,7 @@ function printResults (user, computer) {
   }
 
   console.log(resultsFormatted(user, computer, winner));
+  rlSync.question("\nPress ENTER to continue");
 }
 
 // returns string of the round's results with highlights and special formatting
@@ -161,6 +162,7 @@ function resultsFormatted (user, computer, winner) {
 
 // prints the winner of the game
 function displayWinner (userWins, computerWins) {
+  console.clear();
   if (userWins > computerWins) {
     console.log("\nCONGRATULATIONS! YOU WON THE GAME!");
   } else {
@@ -182,8 +184,10 @@ function promptCont () {
 }
 
 // main
+console.clear();
 console.log("Welcome to Rock Paper Scissors Spock Lizard!");
 console.log("The first to reach 3 wins is the winner!");
+rlSync.question("\nPress ENTER to continue\n");
 let contProgram;
 
 do {
@@ -191,3 +195,5 @@ do {
   contProgram = promptCont();
   console.clear();
 } while (contProgram === 'y' || contProgram === "yes");
+
+console.log("Thanks for playing Rock, Paper, Scissors. Goodbye!");
