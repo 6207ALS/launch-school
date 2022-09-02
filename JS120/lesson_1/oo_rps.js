@@ -45,9 +45,9 @@ const RPSGame = {
     let cHistory = this.computer.history.join(", ");
 
     console.clear();
-    console.log("- HISTORY - ");
+    console.log("~ HISTORY ~");
     console.log(`YOU: [${hHistory}]\nCOMPUTER: [${cHistory}]\n`);
-    console.log("- SCORE - ");
+    console.log("~ SCORE ~");
     console.log(`ROUND ${rounds} - YOU: ${hScore} | COMPUTER: ${cScore}`);
   },
 
@@ -296,16 +296,27 @@ function createHuman() {
     move: null,
 
     // prompt user to choose one of five moves
+    // user can also enter the shorthand version of any move
     choose() {
       const CHOICES = ['rock', 'paper', 'scissors', 'spock', 'lizard'];
+      let shortHands = {
+        r: "rock",
+        p: "paper",
+        s: "scissors",
+        sp: "spock",
+        l: "lizard"
+      };
+      let shortHandKeys = Object.keys(shortHands);
       let choice;
 
-      while (!CHOICES.includes(choice)) {
+      while (!CHOICES.concat(shortHandKeys).includes(choice)) {
         choice = rlSync.question(
-          "\n=> Choose one: ROCK, PAPER, SCISSORS, SPOCK, LIZARD\n"
+          "\n=> Choose one: ROCK, PAPER, SCISSORS, SPOCK, LIZARD" +
+          " (R, P, S, SP, L)\n"
         ).toLowerCase().replaceAll(" ", "");
       }
 
+      if (shortHandKeys.includes(choice)) choice = shortHands[choice];
       this.move = choice;
     }
   };
