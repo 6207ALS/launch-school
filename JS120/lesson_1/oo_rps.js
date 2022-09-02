@@ -97,7 +97,6 @@ const RPSGame = {
     console.log("-".repeat(moves.length));
   },
 
-  // update history of moves of player and computer
   // update score based on round winner
   updateScore() {
     this.rounds++;
@@ -113,6 +112,7 @@ const RPSGame = {
     }
   },
 
+  // update history of moves of player and computer
   updateHistory() {
     let humanMove = this.human.move;
     let computerMove = this.computer.move;
