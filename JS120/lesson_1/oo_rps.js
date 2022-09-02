@@ -174,6 +174,7 @@ const RPSGame = {
     this.displayGoodbyeMessage();
   },
 
+  // play a single round of R-P-S-SP-L
   playRound() {
     this.displayScore();
     this.human.choose();
