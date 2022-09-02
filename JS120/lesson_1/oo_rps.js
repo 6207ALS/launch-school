@@ -26,6 +26,7 @@ const RPSGame = {
 
   // display exit messages
   displayGoodbyeMessage() {
+    console.clear();
     console.log(
       "Thanks for playing Rock, Paper, Scissors, Spock, Lizard. Goodbye!"
     );
@@ -127,7 +128,10 @@ const RPSGame = {
   },
 
   // display the final winner of the game based on the players' scores.
-  displayFinalWinner(hScore, cScore) {
+  displayFinalWinner() {
+    let hScore = this.human.score;
+    let cScore = this.computer.score;
+
     console.clear();
     console.log(`FINAL SCORE | HUMAN: ${hScore} | COMPUTER: ${cScore}`);
 
@@ -168,7 +172,7 @@ const RPSGame = {
       while (this.human.score < 5 && this.computer.score < 5) {
         this.playRound();
       }
-      this.displayFinalWinner(this.human.score, this.computer.score);
+      this.displayFinalWinner();
       if (!this.playAgain()) break;
     }
     this.displayGoodbyeMessage();
