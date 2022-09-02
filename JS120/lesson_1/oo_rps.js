@@ -100,7 +100,6 @@ const RPSGame = {
   // update history of moves of player and computer
   // update score based on round winner
   updateScore() {
-    this.updateHistory();
     this.rounds++;
     switch (this.roundWinner) {
       case "tie":
@@ -182,6 +181,7 @@ const RPSGame = {
     this.determineWinner();
     this.displayWinner();
     this.updateScore();
+    this.updateHistory();
     this.computer.adjustWeight(this.roundWinner);
     this.continue();
   }
