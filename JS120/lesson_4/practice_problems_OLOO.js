@@ -1,5 +1,5 @@
 /*
-Answers for JS120 - Lesson 3, Practice Problems: Object Creation with Prototypes
+Answers for JS120 - Lesson 4, Practice Problems: Object Creation with Prototypes
 */
 
 // Q1
