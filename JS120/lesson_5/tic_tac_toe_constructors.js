@@ -1,3 +1,13 @@
+/*
+tic_tac_toe_classes.js is the classic tic-tac-toe game against a computer.
+The code was written using object-oriented programming, specifically with
+constructors and prototypes (as implemented in JavaScript ES6). During the
+player's turn, the user is prompted to mark off an available square from a 3x3
+grid. During thecomputer's turn, the computer will randomly mark one of the
+available squares. The first player to achieve a row (3 marks in a row, column,
+or diagonal line) wins the game.
+*/
+
 let rlSync = require('readline-sync');
 
 function Square(marker = Square.UNUSED_SQUARE) {
