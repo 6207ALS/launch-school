@@ -1,0 +1,24 @@
+{
+  "name": "js101_small_problems",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6207ALS/js101-small-problems.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/6207ALS/js101-small-problems/issues"
+  },
+  "homepage": "https://github.com/6207ALS/js101-small-problems#readme",
+  "dependencies": {
+    "fraction.js": "github:infusion/Fraction.js",
+    "readline-sync": "^1.4.10"
+  }
+}
