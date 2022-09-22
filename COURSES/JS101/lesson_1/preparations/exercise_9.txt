@@ -1,0 +1,10 @@
+1. The following would not be appropriate names as variables, functions,
+nor constants. 
+
+    - snake_case
+    - quick_Fox
+    - 1stCharacter
+
+snake_case and quick_Fox use underscores, but require to be all capitalized
+to be valid constants (SCREAMING_SNAKE_CASE). 1stCharacter has a number 
+at the beginning. 

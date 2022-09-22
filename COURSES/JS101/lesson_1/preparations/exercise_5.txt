@@ -1,0 +1,39 @@
+.substring() :    String.prototype.substring()
+    - String constructor
+    - instance method
+
+
+.create() :       Object.create()
+    - Object constructor
+    - static method 
+
+
+.fromCharCode() : String.fromCharCode()
+    - String constructor
+    - static method
+
+
+.slice() :        Array.prototype.slice()
+    - Array constructor
+    - instance method
+
+         :        String.prototype.slice()
+    - String constructor
+    - instance method
+
+
+.toString() :     String.prototype.toString()
+    - String constructor
+    - instance method
+
+            :     Object.prototype.toString()
+    - Object constructor
+    - instance method
+
+            :     Array.prototype.toString()
+    - Array constructor
+    - instance method
+
+            :     Number.prototype.toString()
+    - Number constructor
+    - instance method 
