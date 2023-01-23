@@ -1,0 +1,23 @@
+JS170 Lesson 3 - Practice Problems: The Request Response Cycle
+
+// Q1
+The required components of an HTTP request are the request method, host name,  
+and the path. Optional components include parameters, other headers, and message
+body.
+
+// Q2
+The required component of an HTTP response is the status code. The headers and
+body are optional.
+
+// Q3
+Several factors determine if a request should use GET or POST as its HTTP 
+method. The request should assess the parameters that are passed to the request.
+If the parameter contains sensitive information and should not be passed as 
+values of the URL's query string, then a POST method should be used. Further,
+if the amount of information exceeds the amount a query string allows, then a 
+POST method should be used.
+
+GET requests should only retrieve content from the server, and should be thought
+of as "read only" operations. POST requests involve changing values that are
+stored on the server. A notable example is HTML forms that use POST requests to
+send the provided information to the server.

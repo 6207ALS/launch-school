@@ -1,0 +1,90 @@
+/*
+JS170 Lesson 3 - Practice Problems: URL Components
+*/
+
+// Q1
+
+/*
+https://amazon.com/Double-Stainless-Commercial-Refrigerator/B60HON32?ie=UTF8&qid=142952676&sr=93&keywords=commercial+fridge
+
+a. The host is amazon.com. It is typically the domain name found after the
+characters "://".
+
+b. The names of the query parameters are "ie", "qid", "sr", and "keywords".
+A query string begins after the "?" character of the URL. Its parameter names
+are the terms used prior to "=" characters.
+
+c. The values of the query parameters are "UTF8", "142952676", "93", and
+"commercial+fridge". Parameter values are identified as the characters provided
+after "=" characters and prior to "&" characters.
+
+d. The scheme of the URL is "https", or Secure HTTP. It can be found at the
+beginning of the URL, prior to the characters "://".
+
+e. The path of the URL is "/Double-Stainless-Commercial-Refrigerator/B60HON32".
+It is typically the path that follows the host name of the URL.
+
+f. The port number of this URL is 443. Though not specified explicitly, URLs
+with a scheme of "https" have a default port number of 443.
+*/
+
+
+// Q2
+
+/*
+http://amazon.com:3000/products/B60HON32?qid=142952676&sr=93
+
+The URL shown above was provided an explicit port number. The port number is
+provided after the host name of the URL.
+*/
+
+
+// Q3
+
+/*
+http://localhost:4567/todos/15
+
+
+a. The URL shown above does not have any query parameters (or a query string).
+Query strings are optional and provide additional information regarding the
+request. In this case, a query string is not provided in the URL.
+
+b. The scheme of the URL is "http". The scheme of an URL is found at the
+beginning, terminated by the characters "://".
+
+c. The path of the URL is /todos/15. The path is typically provided after the
+host name.
+
+d. The host of the URL is 'localhost'. The host of an URL is stated after the
+characters "://".
+
+e. The port number of the URL is 4567. The port number is typically provided
+after the host name of the URL. 
+*/
+
+
+// Q4
+
+/*
+According to a quick search on Google, spaces on an URL can be encoded either
+through the "+" character or with "%20".
+*/
+
+
+// Q5
+
+// The "?" character indicates the beginning of a URL's query string.
+
+
+
+// Q6
+
+/*
+The "=" character is used between the name and value of a query parameter. It is
+very much like the assignment operator "=" used in programming to assign a value
+to a variable/argument/parameter.
+*/
+
+// Q6
+
+// The "&" character is used as a delimiter between multiple query parameters.
