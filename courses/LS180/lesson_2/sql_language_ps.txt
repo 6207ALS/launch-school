@@ -1,0 +1,62 @@
+// LS180 - Lesson 2: The SQL Language, Practice Problems
+
+// Q1
+SQL is a special-purpose, declarative programming language. It is described as
+special-purpose because it is typically used only for one purpose: interacting
+with relational databases. This can be contrasted with a general-purpose
+programming language, such as Ruby, C, or Python. 
+SQL is defined as a declarative programming language because its syntax
+describes 'what' tasks should be done, rather than describing 'how' they should
+be executed. The implementation for these actions are abstracted away from the
+user by the SQL server.
+
+// Q2
+The three sub-languages of SQL are Data Definition Language (DDL), Data
+Manipulation Language (DML) and Data Control Language (DCL), with each governing
+different aspects of database interactions. DDL  is used to 'define' the 
+structure, or schema, of databases. DML is used to manipulate and interact with
+the data within databases. DCL is used to manage the rights and access roles of
+the users interacting with a database.
+
+// Q3
+'canoe'
+'a long road'
+'weren''t'
+'"No way!"'
+
+Single quotes are used to denote the enwrapped characters as string values. In
+the case where the string value contains a single quote itself -- such as the 
+word "weren't" -- the single quote precedes with an additional single quote,
+as shown above. 
+
+// Q4
+
+The || operator can be used to concatenate two or more string values.
+
+// Q5
+
+SELECT lower('HeLLo');
+  lower
+----------
+  hello
+(1 row)
+
+The 'lower()' function in SQL is used to return a lowercased version of the
+provided string argument. In the example shown above, the string value 'HeLLo'
+was passed as the argument for the 'lower()' function. The returned output was
+'hello', whose letters are only lowercased.
+
+// Q6
+true = t
+false = f
+
+SQL denotes 'true' and 'false' values with 't' and 'f', respectively. 
+
+// Q7
+SELECT trun(4 * Pi() * (26.3 ^ 2));
+
+The expression shown above can be used to determine the surface area of a sphere
+with a radius of 26.3 centimeters. The function 'Pi()' is used to return a
+constant float value of math Pi. The sequence of characters, 26.3 ^ 2, is used 
+to return the square value of 26.3. Finally, the 'trunc()' function is used to
+return its argument (expectedly a float value) truncated to an integer.
