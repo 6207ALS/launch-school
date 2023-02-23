@@ -1,0 +1,7 @@
+LS180 - SQL Fundamentals: DML, DDL, and DCL, DML/DDL/DCL Part 4
+
+A:
+The provided statement makes use of the Data Definition Language (DDL)
+component of SQL. The 'ALTER TABLE' and 'DROP CONSTRAINT' statements alter the
+'structure', or schema, of a table; they manipulate the 'data definitions.' As
+such, the statements are considered Data Definition Language.

@@ -1,0 +1,7 @@
+LS180 - SQL Fundamentals: DML, DDL, and DCL, DML/DDL/DCL Part 10
+
+The provided statement makes use of the Data Definition Language (DML) 
+component of SQL. The "CREATE SEQUENCE" statement alters, modifies a database's
+characteristics by adding a 'sequence' object to the database structure. In 
+other words, it manipulates a database's structure rather than the data itself. 
+As such, 'CREATE SEQUENCE' is considered a DML statement.

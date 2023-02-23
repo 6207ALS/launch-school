@@ -1,0 +1,8 @@
+LS180 - SQL Fundamentals: DML, DDL, and DCL, DML/DDL/DCL Part 9
+
+A:
+The provided statement makes use of the Data Definition Language (DML) 
+component of SQL. The "DROP DATABASE" statement removes, deletes a databse
+entirely from a user. In other words, it manipulates a database's structure 
+(or rather deletes it entirely). As such, 'DROP DATABASE' is considered a 
+DML statement.

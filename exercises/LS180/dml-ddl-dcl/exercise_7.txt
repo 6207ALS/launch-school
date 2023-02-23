@@ -1,0 +1,6 @@
+LS180 - SQL Fundamentals: DML, DDL, and DCL, DML/DDL/DCL Part 7
+
+A:
+The provided statement does not make use of any of the sublanguages of SQL.
+Rather, the '\d' meta-command is a 'psql' console command. It outputs the
+schema of a specified table. However, it is not part of any SQL sublanguage.

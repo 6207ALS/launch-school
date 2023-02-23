@@ -1,0 +1,8 @@
+LS180 - SQL Fundamentals: DML, DDL, and DCL, DML/DDL/DCL Part 2
+
+A:
+The provided statement makes use of the Data Manipulation Language (DML) of SQL.
+The 'SELECT' DML statement is used to return the 'column_name' column from the
+'my_table' table. The 'SELECT' statement queries the specified data in a
+databse. In contrast to DDL, which defines the structure of a table, DML
+manipulates with the existing data.

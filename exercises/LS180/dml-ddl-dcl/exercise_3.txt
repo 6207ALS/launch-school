@@ -1,0 +1,8 @@
+LS180 - SQL Fundamentals: DML, DDL, and DCL, DML/DDL/DCL Part 3
+
+A:
+The provided statement makes use of the Data Definition Language (DML) of SQL.
+The 'CREATE TABLE' statement creates a new table within a database. The
+expression that is provided afterwards defines the various columns in the table
+and their 'characteristics.' Stated differently, the provided statement controls
+the 'data definitions,' labeling it as a DDL sublanguage.

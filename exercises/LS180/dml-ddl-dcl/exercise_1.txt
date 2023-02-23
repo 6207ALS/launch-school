@@ -1,0 +1,23 @@
+LS180 - SQL Fundamentals: DML, DDL, and DCL, DML/DDL/DCL Part 1
+
+A:
+
+Data Definition Language: CREATE TABLE, ALTER TABLE
+Data Manipulation Language: SELECT, INSERT INTO
+
+The two remaining sublanguages of SQL are Data Definition Language (DDL) and
+Data Manipulation Language (DML). 
+
+DDL  is used to 'define' the structure, or schema, of databases. The 'CREATE 
+TABLE' DDL statement is used to create a new table within a database. 
+Expressions provided after the statement define the schema of the table. The 
+'ALTER TABLE' DDL statement is used to update and change the structure of a 
+table. Expressions provided after the statement define which aspect of the 
+table to change. 
+
+DML is used to manipulate and interact with the existing data within databases.
+The 'SELECT' DML statement is used to select data from a database, typically 
+from table(s). The returned data is stored in a result table, called the 
+result-set. The 'INSERT INTO' DML statement is used to add, insert data 
+(records) into a specified table. The values required for each column of a row
+are typically provided within the statement.

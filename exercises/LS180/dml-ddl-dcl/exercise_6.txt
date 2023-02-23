@@ -1,0 +1,7 @@
+LS180 - SQL Fundamentals: DML, DDL, and DCL, DML/DDL/DCL Part 6
+
+A:
+The provided statement makes use of the Data Manipulation Language (DML) 
+component of SQL. The "UPDATE" statement updates, changes data from a table.
+In other words, it manipulates data itself, rather than defining its structure.
+As such, 'UPDATE' is considered a DML statement.
