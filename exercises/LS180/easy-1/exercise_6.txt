@@ -1,0 +1,11 @@
+// LS180 - SQL Fundamentals: Easy 1, Update Data
+
+A: UPDATE birds
+SET species = 'Raven'
+WHERE species = 'Crow';
+
+To update a row of data, we have to use the SQL statement 'UPDATE'. Without a
+WHERE clause, an UPDATE statement will update all rows in the table. With the 
+WHERE clause, we can specify which rows should be updated. In this case, we 
+specify that all birds whose species are 'Crow' should be updated so that 
+their species are 'Raven' instead. 

@@ -1,0 +1,6 @@
+// LS180 - SQL Fundamentals: Easy 1, Drop Table
+
+A: DROP TABLE birds;
+
+The DROP TABLE statement can be used to delete an existing table. We follow the
+statement with 'birds' to specify which table we want to delete.

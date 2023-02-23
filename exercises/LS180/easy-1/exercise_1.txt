@@ -1,0 +1,8 @@
+// LS180 - SQL Fundamentals: Easy 1, Create a Database
+
+Q: Create a new database called animals.
+
+A: From the terminal you can enter `createdb animals` to create a database named
+'animals.' Alternatively, you can create a database from the psql console with
+the 'CREATE DATABASE <database_name>;' statement. In the console, we can enter
+'CREATE DATABASE animals;'.

@@ -1,0 +1,8 @@
+// LS180 - SQL Fundamentals: Easy 1, Delete Data
+
+A: DELETE FROM birds
+WHERE species = 'Finch' AND age = 3;
+
+We can use a 'DELETE' SQL statement to delete specific entries from the 'birds'
+table. In this case, we delete entries WHERE their species is Finch AND their
+age is 3 years old.

@@ -1,0 +1,9 @@
+// LS180 - SQL Fundamentals: Easy 1, Add Constraint
+
+A: ALTER TABLE birds
+ADD CHECK (age > 0);
+
+To ensure that only birds with a positive age are added to the database, a
+constraint can be added to the table. First, we specify which table we wish to
+alter (update): birds. We follow the statement with a 'ADD CONSTRAINT' clause to
+add a constraint. We provide the 'CHECK' clause with 'age > 0' as the condition.  

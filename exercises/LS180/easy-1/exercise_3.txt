@@ -1,0 +1,15 @@
+// LS180 - SQL Fundamentals: Easy 1, Insert Data
+
+A: INSERT INTO birds (name, age, species)
+VALUES ('Charlie', 3, 'Finch'),
+('Allie', 5, 'Owl'),
+('Jennifer', 3, 'Magpie'),
+('Jamie', 4, 'Owl'),
+('Roy', 8, 'Crow');
+
+We use the 'INSERT INTO' SQL statement to add data to our 'birds' table.
+We specify the column names we wish to work with and the values we wish to
+insert under each of those columns. Take note that the order of the values
+provided are imperative as they correspond to the order of the specified
+columns. We can also insert multiple entries in one INSERT statement with the
+use of commas.

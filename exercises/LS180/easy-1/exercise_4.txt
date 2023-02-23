@@ -1,0 +1,6 @@
+// LS180 - SQL Fundamentals: Easy 1, Select Data
+
+A: SELECT * FROM birds;
+
+To query all the data in our table, we need to use a SELECT statement. We can
+use the '*' character to specify all columns in our table.

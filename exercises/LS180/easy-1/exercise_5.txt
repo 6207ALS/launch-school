@@ -1,0 +1,7 @@
+// LS180 - SQL Fundamentals: Easy 1, WHERE Clause
+
+A: SELECT * FROM birds WHERE age < 5;
+
+The WHERE clause specifies a condition where all rows of the resulting table
+match. In this case, we want records for birds 'where' their age is less than
+5 (years). 

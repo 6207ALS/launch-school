@@ -1,0 +1,15 @@
+// LS180 - SQL Fundamentals: Easy 1, Create a Table
+
+A: Connected to the 'animals' database, the following statement can be entered:
+CREATE TABLE birds (
+id serial PRIMARY KEY,
+name varchar(25),
+age integer,
+species varchar(15));
+
+'id' is a primary key that auto-increments. The data type 'serial' is an integer
+that auto-increments 'id' as we create new 'birds' rows in the table. The 
+PRIMARY KEY keywords ensures that 'id' is NOT NULL and UNIQUE. We also define
+'name' and 'species' columns as string data types, each with various allocated
+memory (string length). Finally, we define the 'age' column with an integer data
+type.

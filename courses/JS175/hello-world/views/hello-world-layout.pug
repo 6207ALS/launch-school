@@ -1,0 +1,24 @@
+html(lang=language)
+  head
+    block page-title-block
+      title This is the page title
+    meta(charset="UTF-8")
+    link(rel="stylesheet" href="/stylesheets/application.css")
+
+  body
+    nav
+      ul
+        for country in countries
+          li
+            a(href=country.path 
+              class=currentPathClass(country.path, currentPath)
+            )
+              img.flag(src=`images/${country.flag}`
+                  alt=country.alt
+                  title=country.title)
+
+    header
+      block header-block
+        h1 Hello world!
+    main
+      block body-block
