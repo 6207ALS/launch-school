@@ -1,0 +1,79 @@
+// LS180 - Lesson 2: Loading Database Dumps, Practice Problems
+
+// Q1
+
+1. The file executed multiple SQL statements as listed in the file.
+Specifically, the file created a 'films' table and inserted several records of
+data to the table.
+
+2. 
+psql:./films.sql:1: NOTICE:  table "films" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+
+The output of loading the file was the lines shown above. Each line indicates
+what specific action (statement) was executed within the file. For instance, the
+line 'CREATE TABLE' indicates that a table was created. The line 'INSERT 0 1'
+indicates that 1 row of data was inserted into a table.
+
+3. 
+The first line of the file states 'DROP TABLE IF EXISTS public.films;' The
+statement deletes the 'films' table from the database, if it already exists
+prior to the execution of the statement.
+
+
+// Q2
+SELECT * FROM films
+
+
+// Q3
+SELECT * FROM films
+WHERE length(title) < 12;
+
+
+// Q4
+ALTER TABLE films
+ADD COLUMN director varchar(50),
+ADD COLUMN duration integer;
+
+
+// Q5
+UPDATE films
+SET director='John McTiernan', duration = 132
+WHERE title='Die Hard';
+
+UPDATE films
+SET director='Michael Curtiz', duration = 102
+WHERE title='Casablanca';
+
+UPDATE films
+SET director='Francis Ford Coppola', duration = 113
+WHERE title='The Conversation';
+
+
+// Q6
+INSERT INTO films (title, year, genre, director, duration)
+VALUES ('1984', 1956, 'scifi', 'Michael Anderson', 90),
+('Tinker Tailor Soldier Spy', 2011, 'espionage', 'Tomas Alfredson', 127),
+('The Birdcage', 1996, 'comedy', 'Mike Nichols', 118);
+
+
+// Q7
+SELECT title, DATE_PART('year', Now()) - year AS Age
+FROM films
+ORDER BY Age ASC;
+
+
+// Q8
+SELECT title, duration FROM films
+WHERE duration > 120
+ORDER BY duration DESC;
+
+
+// Q9
+SELECT title FROM films
+ORDER BY duration DESC
+LIMIT 1;

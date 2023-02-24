@@ -1,0 +1,54 @@
+// LS180 - Lesson 2: Using Keys, Practice Problems
+
+
+// Q1
+CREATE SEQUENCE counter;
+
+
+// Q2
+SELECT nextval(counter);
+
+
+// Q3
+DROP SEQUENCE counter;
+
+
+// Q4
+CREATE SEQUENCE even_counter INCREMENT BY 2 MINVALUE 2;
+SELECT nextval(even_counter);
+
+The value at which 'even_counter' increments by can be defined with the 
+'INCREMENT BY' clause. It should be noted that, without the 'MINVALUE 2' CLAUSE,
+the counter will begin incrementing from the value 1 (1, 3, 5, 7, ...). To
+ensure that only even numbers are produced, the 'MINVALUE' clause can be used
+followed by the value for the sequence to begin with. In this case, the MINVALUE
+was set to 2.
+
+
+// Q5
+'regions_id_seq'
+
+
+// Q6
+ALTER TABLE films
+ADD COLUMN id serial PRIMARY KEY;
+
+
+// Q7
+UPDATE films SET id = 22 WHERE title = 'Die Hard';
+
+ERROR:  duplicate key value violates unique constraint "films_pkey"
+DETAIL:  Key (id)=(3) already exists.
+
+
+// Q8
+ALTER TABLE films
+ADD COLUMN id2 serial PRIMARY KEY;
+
+ERROR:  multiple primary keys for table "films" are not allowed
+
+
+// Q9
+ALTER TABLE films
+ALTER COLUMN id
+DROP CONSTRAINT films_pkey;

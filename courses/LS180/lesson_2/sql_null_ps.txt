@@ -1,0 +1,93 @@
+// LS180 - Lesson 2: NOT NULL and Default Values, Practice Problems
+
+// Q1
+The effect of using any operator on a NULL value returns NULL. 
+
+
+// Q2
+ALTER TABLE employees
+ALTER COLUMN department 
+SET DEFAULT 'unassigned';
+
+The statement shown above assigns a default value to the 'department' column
+of the 'employees' table.
+
+UPDATE employees
+SET department = DEFAULT
+WHERE department IS NULL;
+
+The statement shown above updates the 'department' column to 'unassigned' to 
+rows where it has a NULL value. 
+
+ALTER TABLE employees
+ALTER COLUMN department
+SET NOT NULL;
+
+The statement shown above updates the 'department' column of the 'employees'
+table to have a NOT NULL constraint.
+
+
+// Q3
+CREATE TABLE temperatures (
+  date date NOT NULL,
+  low integer NOT NULL,
+  high integer NOT NULL
+);
+
+
+// Q4
+INSERT INTO temperatures (date, low, high)
+VALUES ('2016-03-01', 34, 43),
+('2016-03-02', 32, 44),
+('2016-03-03', 31, 47),
+('2016-03-04', 33, 42),
+('2016-03-05', 39, 46),
+('2016-03-06', 32, 43),
+('2016-03-07', 29, 32),
+('2016-03-08', 23, 31),
+('2016-03-09', 17, 28);
+
+
+// Q5
+SELECT date, round(((high + low) / 2), 1) AS average FROM temperatures
+WHERE date BETWEEN '2016-03-2' AND '2016-03-08';
+
+
+// Q6
+ALTER TABLE temperatures
+ADD COLUMN rainfall integer DEFAULT 0;
+
+
+// Q7
+UPDATE temperatures
+SET rainfall = round(((high + low) / 2) - 35, 0)
+WHERE ((high + low) / 2) > 35;
+
+// Q8
+ALTER TABLE temperatures
+ALTER COLUMN rainfall
+SET DATA TYPE decimal(4, 3);
+
+UPDATE temperatures
+SET rainfall = rainfall * 0.039;
+
+
+// Q9
+ALTER TABLE temperatures RENAME TO weather;
+
+
+// Q10
+\d weather
+
+
+// Q11
+pg_dump -d sql-course -t weather --inserts > dump.sql
+
+The first keyword 'pg_dump' is the PostgreSQL program used create a SQL file
+contains the SQL commands to recreate the specified 'weather' table. The 
+'-d' flag denotes that the following word is the database where the table is
+located. The '-t' flag denotes that the following word is the table we wish to
+copy. The '--inserts' flag indicates that multiple "INSERT INTO" statments 
+should be used instead of a single 'COPY FROM stdin' statement to add data. 
+Finally, the '>' character and 'dump.sql' indicates that the program should 
+place the resulting output into a new file named 'dump.sql'.

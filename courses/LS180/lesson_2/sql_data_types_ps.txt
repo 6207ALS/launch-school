@@ -1,0 +1,32 @@
+// LS180 - Lesson 2: PostgreSQL Data Types, Practice Problems
+
+// Q1
+
+The difference between 'varchar' and 'text' is the number of characters that can
+be provided for the value. For 'varchar,' there is a predefined number of
+characters allowed for the value. For instance, a datatype of varchar(25) would
+accept up to 25 characters as its value. As such, a value like
+'abcdefghijklmnopqrstuvwxy' would be valid but not 'abcdefghijklmnopqrstuvwxyz'.
+The 'text' data type, on the other hand, accepts an unlimited number of
+characters. A string of theoretically any length is valid as the value.
+
+// Q2
+
+'integer' values are non-fractional numbers. 'real' values are floating-point
+numbers that accept fractional values. 'decimal' values can contain non-floating
+point fractional values with a limited precision.
+
+// Q3
+
+The largest value that an 'integer' column can store is 2147483647 
+(or (2 ^ 32) - 1).
+
+// Q4
+
+A 'timestamp' value includes a date and a time of day, while a 'date' only 
+includes the date (and no time).
+
+// Q5
+
+No. A timestamp cannot store the time zone of its value. However, a 'timestamp
+with time zone' data type exists that will store a timestamp with a time zone.

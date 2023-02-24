@@ -1,0 +1,156 @@
+// LS180 - Lesson 2: More Constraints, Practice Problems
+
+// Q1
+FROM TERMINAL: psql -d sql-course < films.sql
+FROM PSQL COMMAND LINE: \i films2.sql
+
+
+// Q2
+ALTER TABLE films ALTER COLUMN title SET NOT NULL;
+ALTER TABLE films ALTER COLUMN year SET NOT NULL;
+ALTER TABLE films ALTER COLUMN genre SET NOT NULL;
+ALTER TABLE films ALTER COLUMN director SET NOT NULL;
+ALTER TABLE films ALTER COLUMN duration SET NOT NULL;
+
+
+// Q3
+Table "public.films"
+  Column  |          Type          | Collation | Nullable | Default
+----------+------------------------+-----------+----------+---------
+ title    | character varying(255) |           | not null |
+ year     | integer                |           | not null |
+ genre    | character varying(100) |           | not null |
+ director | character varying(255) |           | not null |
+ duration | integer                |           | not null |
+
+The output of '\d films' presents a 'nullable' column, whose values indicate
+whether the corresponding column can contain a NULL value or not.
+
+
+// Q4
+ALTER TABLE films
+ADD CONSTRAINT title_unique 
+UNIQUE (title);
+
+
+// Q5
+Indexes:
+    "title_unique" UNIQUE CONSTRAINT, btree (title)
+
+Beneath the schema of the 'films' table, 'Indexes' lists the applied constraints
+to the table.
+
+
+// Q6 
+ALTER TABLE films
+DROP CONSTRAINT title_unique;
+
+
+// Q7
+ALTER TABLE films
+ADD CONSTRAINT title_length
+CHECK (length(title) >= 1);
+
+
+// Q8
+INSERT INTO films (title, year, genre, director, duration) 
+VALUES ('', 2000, 'genre', 'director', 2);
+
+ERROR:  new row for relation "films" violates check constraint "title_length"
+DETAIL:  Failing row contains (, 2000, genre, director, 2).
+
+
+// Q9
+Check constraints:
+    "title_length" CHECK (length(title::text) >= 1)
+
+The CHECK constraint is listed within 'Check Constraint' beneath the 'films'
+table's schema.
+
+
+// Q10
+ALTER TABLE films
+DROP CONSTRAINT title_length;
+
+
+// Q11
+ALTER TABLE films
+ADD CONSTRAINT year_range
+CHECK (year BETWEEN 1900 AND 2100);
+
+
+// Q12
+Check constraints:
+    "year_range" CHECK (year >= 1900 AND year <= 2100)
+
+The CHECK constraint is listed within 'Check Constraint' beneath the 'films'
+table's schema.
+
+
+// Q13
+ALTER TABLE films
+ADD CONSTRAINT director_name
+CHECK (length(director) >= 3 AND position(' ' in director) > 0);
+
+
+// Q14
+Check constraints:
+    "director_name" CHECK (length(director::text) >= 3 AND "position"(director::text, ' '::text) > 0)
+    "year_range" CHECK (year >= 1900 AND year <= 2100)
+
+The CHECK constraint is listed within 'Check Constraint' beneath the 'films'
+table's schema.
+
+
+// Q15
+UPDATE films
+SET director = 'Johnny'
+WHERE title = 'Die Hard';
+
+ERROR:  new row for relation "films" violates check constraint "director_name"
+DETAIL:  Failing row contains (Die Hard, 1988, action, Johnny, 132).
+
+
+// Q16
+1. 
+ALTER TABLE [table_name]
+ALTER COLUMN [column_name]
+SET NOT NULL;
+
+2. 
+ALTER TABLE [table_name]
+ADD CONSTRAINT [constraint_name]
+ADD CHECK (check_expression);
+
+3.
+ALTER TABLE [table_name]
+ADD CONSTRAINT [constraint_name]
+UNIQUE (column_name);
+
+4.
+ALTER TABLE [table_name]
+ALTER COLUMN [column_name]
+SET DATA TYPE [data_type];
+
+
+// Q17
+CREATE TABLE pants (
+size integer,
+price decimal(5, 2) DEFAULT 0);
+
+ALTER TABLE pants
+ADD CONSTRAINT price
+CHECK (price > 0);
+
+INSERT INTO pants (size) VALUES (30);
+
+ERROR:  new row for relation "pants" violates check constraint "price"
+DETAIL:  Failing row contains (30, 0.00).
+
+It is not possible to define a default value for a column that will be
+considered invalid by a constraint. If the value is set to its default value,
+an error is raised, indicating that the constraint does not allow such value.
+
+
+// Q18
+\d [table_name]

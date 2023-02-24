@@ -1,0 +1,59 @@
+// LS180 - Lesson 2: GROUP BY and Aggregate Functions, Practice Problems
+
+
+// Q1
+FROM TERMINAL: psql -d sql_course < films4.sql
+FROM PSQL CONSOLE: \i films4.sql
+
+
+// Q2
+INSERT INTO films (title, year, genre, director, duration)
+VALUES ('Wayne''s World', 1992, 'comedy', 'Penelope Spheeris', 95),
+('Bourne Identity', 2002, 'espionage', 'Doug Liman', 118);
+
+
+// Q3
+SELECT DISTINCT genre FROM films;
+
+
+// Q4
+SELECT genre FROM films
+GROUP BY genre;
+
+
+// Q5
+SELECT round(avg(duration), 0) FROM films;
+
+
+// Q6
+SELECT genre, round(avg(duration), 0) AS "Average Duration" FROM films
+GROUP BY genre;
+
+
+// Q7
+SELECT year - (year % 10) AS "Decade", 
+round(avg(duration), 0) AS "Average Duration" 
+FROM films
+GROUP BY "Decade"
+ORDER BY "Decade";
+
+
+// Q8
+SELECT * FROM films
+WHERE director LIKE 'John %';
+
+
+// Q9
+SELECT genre, count(id) FROM films
+GROUP BY genre
+ORDER BY count DESC;
+
+
+// Q10
+SELECT year - (year % 10) AS decade, genre, string_agg(title, ', ') FROM films
+GROUP BY decade, genre ORDER BY decade ASC;
+
+
+// Q11
+SELECT genre, sum(duration) AS total_duration FROM films
+GROUP BY genre ORDER BY total_duration ASC, genre ASC;
