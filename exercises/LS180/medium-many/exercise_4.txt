@@ -1,0 +1,6 @@
+// LS180 - SQL Fundamentals, Medium: Many to Many, Get Services With No Customers
+
+
+SELECT services.description FROM customers_services
+RIGHT OUTER JOIN services ON services.id = customers_services.service_id
+WHERE customers_services.server_id IS NULL;

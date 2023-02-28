@@ -1,0 +1,89 @@
+// LS180 - Lesson 3, Relational Data and JOINS: Many-to-Many Practice Problems
+
+// Import dump file to database
+
+FROM TERMINAL: psql -d database_name < dump_file
+FROM PSQL CONSOLE: database_name=# \i dump_file
+
+// Q1
+ALTER TABLE books_categories
+DROP CONSTRAINT "books_categories_book_id_fkey",
+ALTER COLUMN book_id SET NOT NULL,
+ADD CONSTRAINT "books_categories_book_id_fkey"
+FOREIGN KEY (book_id) REFERENCES books(id) 
+ON DELETE CASCADE;
+
+ALTER TABLE books_categories
+DROP CONSTRAINT "books_categories_category_id_fkey",
+ALTER COLUMN category_id SET NOT NULL,
+ADD CONSTRAINT "books_categories_category_id_fkey"
+FOREIGN KEY (category_id) REFERENCES categories(id) 
+ON DELETE CASCADE;
+
+
+// Q2
+SELECT books.id, books.author, string_agg(categories.name, ', ') FROM books
+JOIN books_categories ON books_categories.book_id = books.id
+JOIN categories ON books_categories.category_id = categories.id
+GROUP BY books.id
+ORDER BY books.id;
+
+
+// Q3
+First, the non-existing categories must be added to our 'categories' table. The
+following statement adds categories needed for the new books. 
+
+INSERT INTO categories (name)
+VALUES ('Space Exploration'), ('Cookbook'), ('South Asia');
+
+
+Second, the 'author' and 'title' columns of the 'books' table must be updated
+to contain strings longer than 25 characters. Some of the authors/titles will
+be longer than 25 characters. Alternatively, the columns' data type can be set
+to 'text' to allow for unlimited number of characters.
+
+ALTER TABLE books
+ALTER COLUMN title
+TYPE varchar(50);
+
+ALTER TABLE books
+ALTER COLUMN author
+TYPE varchar(50);
+
+
+Third, we can finally add the new books to our 'books' table. Take note that
+any string containing single quotes must have them escaped.
+
+INSERT INTO books (title, author)
+VALUES ('Sally Ride: America''s First Woman in Space', 'Lynn Sherr');
+
+INSERT INTO books (title, author)
+VALUES ('Jane Eyre', 'Charlotte Brontë');
+
+books=# INSERT INTO books (title, author)
+VALUES ('Vij''s: Elegant and Inspired Indian Cuisine', 'Meeru Dhalwala and Vikram Vij');
+
+
+Finally, we can update our 'books_categories' table to organize which categories
+the newly added books belong to. Each book belongs to several categories. 
+
+INSERT INTO books_categories (book_id, category_id) 
+VALUES (4, 5), (4, 1), (4, 7),
+(5, 2), (5, 4),
+(6, 8), (6, 1), (6, 9);
+
+
+// Q4
+ALTER TABLE books_categories
+ADD UNIQUE (book_id, category_id);
+
+
+// Q5
+SELECT categories.name, 
+count(books.id) AS book_count, 
+string_agg(books.title, ', ') AS book_titles
+FROM books
+JOIN books_categories ON books_categories.book_id = books.id 
+JOIN categories ON books_categories.category_id = categories.id
+GROUP BY categories.name
+ORDER BY categories.name;

@@ -1,0 +1,11 @@
+// LS180 - SQL Fundamentals, Medium: Many to Many, Hypothetically
+
+SELECT SUM(services.price) FROM services 
+JOIN customers_services ON services.id = customers_services.service_id
+WHERE services.price > 100;
+
+SELECT COUNT(customers.id) * (
+  SELECT SUM(services.price) FROM services 
+  WHERE services.price > 100
+) AS SUM
+FROM customers;

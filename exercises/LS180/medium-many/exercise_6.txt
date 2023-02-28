@@ -1,0 +1,6 @@
+// LS180 - SQL Fundamentals, Medium: Many to Many, Services With At Least 3 Customers
+
+SELECT services.description, COUNT(customers_services.id) AS count FROM services
+JOIN customers_services ON services.id = customers_services.service_id
+GROUP BY services.description
+HAVING (COUNT(customers_services.id) >= 3);

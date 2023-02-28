@@ -1,0 +1,4 @@
+// LS180 - SQL Fundamentals, Medium: Many to Many, Total Gross Income
+
+SELECT SUM(services.price) AS gross FROM services
+JOIN customers_services ON customers_services.service_id = services.id;
