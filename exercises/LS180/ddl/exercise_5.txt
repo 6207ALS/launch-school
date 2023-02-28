@@ -1,0 +1,43 @@
+// LS180 - SQL Fundamentals: DDL, Check Values in List
+
+ALTER TABLE stars
+ALTER COLUMN spectral_type SET NOT NULL,
+ADD CHECK (spectral_type IN ('O', 'B', 'A', 'F', 'G', 'K', 'M'));
+
+
+// Further Exploration
+
+ALTER TABLE stars
+DROP CONSTRAINT stars_spectral_type_check,
+ALTER COLUMN spectral_type DROP NOT NULL;
+
+INSERT INTO stars (name, distance, companions)
+           VALUES ('Epsilon Eridani', 10.5, 0);
+
+INSERT INTO stars (name, distance, spectral_type, companions)
+           VALUES ('Lacaille 9352', 10.68, 'X', 0);
+
+ALTER TABLE stars
+ADD CHECK (spectral_type IN ('O', 'B', 'A', 'F', 'G', 'K', 'M')),
+ALTER COLUMN spectral_type SET NOT NULL;
+
+ERROR:  column "spectral_type" contains null values
+ERROR:  check constraint "stars_spectral_type_check" is violated by some row
+
+
+Explanation: Attempting to add the 'SET NOT NULL' constraint to the 
+'spectral_type' column, despite the table having rows with NULL values, will 
+raise an error. Likewise, attempting to add the CHECK constraint to the 
+'spectral_type' column, despite the table having rows with invalid values, will 
+also raise an error. Both errors indicate that their respective constraint
+cannot be implemented because of existing rows that violate the constraint.
+
+To work around this, the user must first adjust the existing data in the table,
+by either removing the rows entirely, or updating them with valid values.
+
+For instance, the following SQL statement can be executed:
+
+DELETE FROM stars WHERE spectral_type NOT IN ('O', 'B', 'A', 'F', 'G', 'K', 'M') 
+OR spectral_type IS NULL
+
+This will remove any 'violating' rows that go against the two constraints.

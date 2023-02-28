@@ -1,0 +1,25 @@
+// LS180 - SQL Fundamentals: DDL, Increase Star Name Length
+
+ALTER TABLE stars
+ALTER COLUMN name
+TYPE varchar(50);
+
+
+// Further exploration
+
+ALTER TABLE stars
+ALTER COLUMN name TYPE varchar(25);
+
+INSERT INTO stars (name, distance, spectral_type, companions)
+           VALUES ('Epsilon Trianguli Australis A', 4, 'K', 3);
+
+ERROR:  value too long for type character varying(25)
+
+ALTER TABLE stars
+ALTER COLUMN name TYPE varchar(50);
+
+
+Explanation: Attempting to enter a string longer than 25 characters results in
+an error stating that the string is too long. Conversely, if a star with the
+name 'Alpha Centauri B' existed in the 'name' column of type 'varchar(50)', and
+the column was altered to type 'varchar(25)', no error would be raised.

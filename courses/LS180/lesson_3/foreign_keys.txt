@@ -1,0 +1,95 @@
+// LS180 - Lesson 3, Relational Data and JOINs: Using Foreign Keys Practice Problems
+
+// Q1
+FROM TERMINAL: psql -d business < business.sql
+FROM PSQL CONSOLE: business=# \i business.sql
+
+
+// Q2
+ALTER TABLE orders 
+ADD CONSTRAINT orders_product_id_fkey 
+FOREIGN KEY (product_id) REFERENCES products(id);
+
+
+// Q3
+INSERT INTO products (name)
+VALUES ('small bolt'), ('large bolt');
+
+INSERT INTO orders (product_id, quantity)
+VALUES (1, 10), (1, 25), (2, 15);
+
+
+// Q4
+SELECT orders.quantity, products.name FROM orders
+INNER JOIN products ON orders.product_id = products.id;
+
+
+// Q5
+Yes. You can insert a row into 'orders' without providing a 'product_id.' The
+schema of the 'orders' table indicates that there are no constraints or
+attributes that prevent the 'product_id' column from NULL. Entering the
+following statement will result in no error:
+
+INSERT INTO orders (quantity)
+VALUES (5);
+
+
+// Q6
+ALTER TABLE orders
+ALTER COLUMN product_id
+SET NOT NULL;
+
+The statement provided above prevents values from the 'product_id' column from
+being NULL. In the case that the table already contains rows with NULL values
+for its 'product_id' column, an error with the following message will be raised:
+
+foreign-keys=# ALTER TABLE orders ALTER COLUMN product_id SET NOT NULL;
+ERROR:  column "product_id" contains null values
+
+
+// Q7
+In the case that the table already contains rows with NULL values for its 
+'product_id' column, such rows can be deleted from the table. Consider the
+following:
+
+foreign-keys=# SELECT * FROM orders;
+
+ id | product_id | quantity
+----+------------+----------
+  1 |          1 |       10
+  2 |          1 |       25
+  3 |          2 |       15
+  4 |            |       42
+(4 rows)
+
+foreign-keys=# DELETE FROM orders WHERE id = 4;
+DELETE 1
+foreign-keys=# ALTER TABLE orders ALTER COLUMN product_id SET NOT NULL;
+ALTER TABLE
+
+After identifying the rows with NULL values for 'product_id,' they can be
+deleted from the table. The 'product_id' column can then be updated to reject
+NULL values.
+
+
+// Q8
+CREATE TABLE reviews (id serial PRIMARY KEY,
+product_id integer NOT NULL,
+review varchar(255),
+FOREIGN KEY (product_id) REFERENCES products(id));
+
+
+// Q9
+INSERT INTO reviews (product_id, review)
+VALUES (1, 'a little small'),
+(1, 'very round!'),
+(2, 'could have been smaller');
+
+
+// Q10
+True or false: A foreign key constraint prevents NULL values from being stored 
+in a column. Answer: False
+
+As demonstrated in Question 5, a NULL value can be provided for a foreign key
+column. As such, it is often necessary to add a 'NOT NULL' constraint to a
+foreign key column.

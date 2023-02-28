@@ -1,0 +1,9 @@
+// LS180 - SQL Fundamentals: DDL, Enumerated Types
+
+ALTER TABLE stars
+DROP CONSTRAINT stars_spectral_type_check;
+
+CREATE TYPE valid_spectral AS ENUM ('O', 'B', 'A', 'F', 'G', 'K', 'M');
+ALTER TABLE stars
+ALTER COLUMN spectral_type
+TYPE valid_spectral USING spectral_type::valid_spectral;

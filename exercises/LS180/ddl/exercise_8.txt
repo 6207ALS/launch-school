@@ -1,0 +1,34 @@
+// LS180 - SQL Fundamentals: DDL, Add a Semi-Major Axis Column
+
+ALTER TABLE planets
+ADD COLUMN semi_major_axis numeric NOT NULL;
+
+
+// Further Exploration
+ALTER TABLE planets
+DROP COLUMN semi_major_axis;
+
+DELETE FROM stars;
+INSERT INTO stars (name, distance, spectral_type, companions)
+           VALUES ('Alpha Centauri B', 4.37, 'K', 3);
+INSERT INTO stars (name, distance, spectral_type, companions)
+           VALUES ('Epsilon Eridani', 10.5, 'K', 0);
+
+INSERT INTO planets (designation, mass, star_id)
+           VALUES ('b', 0.0036, 1);
+INSERT INTO planets (designation, mass, star_id)
+           VALUES ('c', 0.1, 2);
+
+ALTER TABLE planets
+ADD COLUMN semi_major_axis numeric NOT NULL;
+
+ERROR:  column "semi_major_axis" contains null values
+
+
+Explanation:
+Attempting to add the 'semi_major_axis' column with a 'NOT NULL' constraint,
+despite existing data not having a value for such column, will raise an error.
+One possible work around is to add the 'semi_major_axis' column without the
+'NOT NULL' constraint. Afterwards, the user can provide a value to the column
+for every existing row in the table. Then, the constraint can be added to the
+column.

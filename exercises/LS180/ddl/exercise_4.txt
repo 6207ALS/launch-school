@@ -1,0 +1,26 @@
+// LS180 - SQL Fundamentals: DDL, Stellar Distance Precision
+
+ALTER TABLE stars
+ALTER COLUMN distance
+TYPE numeric;
+
+
+// Further Exploration
+
+ALTER TABLE stars
+ALTER COLUMN distance TYPE integer;
+
+INSERT INTO stars (name, distance, spectral_type, companions)
+           VALUES ('Alpha Orionis', 643, 'M', 9);
+
+ALTER TABLE stars
+ALTER COLUMN distance TYPE numeric ;
+
+ id |     name      | distance | spectral_type | companions
+----+---------------+----------+---------------+------------
+  1 | Alpha Orionis |      643 | M             |          9
+
+
+Explanation: Converting existing rows their 'distance' column into a 'numeric'
+type will not raise any errors. However, converting a decimal value, say 4.3,
+into a integer will result in the value being truncated to its whole value (4).

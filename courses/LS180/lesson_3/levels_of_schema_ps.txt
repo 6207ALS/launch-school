@@ -1,0 +1,19 @@
+// LS180 - Lesson 3: Relational Data and JOINS, 
+// Database Diagrams: Levels of Schema Practice Problems
+
+
+// Q1, Q2, Q3
+The three levels of database schema are conceptual, logical, and physical.
+A conceptual database schema concerns with high-level abstractions of the data.
+It demonstrates the relationships between the 'entities' of the databases. A
+physical database schema, on the other hand, concerns with lower-level, 
+implementation-specific diagrams of the database. It displays detailed
+diagrams of each table such as their columns and attributes. A logical schema
+is a combination of the two - conceptual and physical. The schema will often
+contain a list of all the attributes and their data types, but in a way that
+is not specific to a database.
+
+
+// Q4
+The three types of relationships that entities / tables can have with each other
+are 'one-to-one', 'one-to-many', and 'many-to-many'.

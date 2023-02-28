@@ -1,0 +1,56 @@
+// LS180 - Lesson 3, Database Diagrams: Working With Multiple Tables Practice Problems
+
+
+// Q1
+FROM TERMINAL: psql -d venue < venue.sql
+FROM PSQL CONSOLE: \i venue.sql
+
+
+// Q2
+SELECT count(id) FROM tickets;
+
+
+// Q3
+SELECT count(DISTINCT customer_id) FROM tickets;
+
+
+// Q4
+SELECT round( count(DISTINCT tickets.customer_id) 
+            / count(DISTINCT customers.id)::decimal 
+            * 100, 2) AS percent
+  FROM customers 
+  LEFT OUTER JOIN tickets 
+  ON customers.id = tickets.customer_id;
+
+
+// Q5
+SELECT events.name, count(tickets.event_id) AS popularity 
+FROM tickets LEFT OUTER JOIN events 
+ON events.id = tickets.event_id 
+GROUP BY events.name 
+ORDER BY popularity DESC;
+
+
+// Q6
+SELECT customers.id, customers.email, count(DISTINCT tickets.event_id)
+FROM customers JOIN tickets ON tickets.customer_id = customers.id
+GROUP BY customers.id
+HAVING count(tickets.event_id) = 3;
+
+
+// Q7
+SELECT events.name, 
+       events.starts_at, 
+       sections.name, 
+       seats.row, 
+       seats.number
+FROM tickets
+INNER JOIN events 
+  ON tickets.event_id = events.id
+INNER JOIN customers 
+  ON tickets.customer_id = customers.id
+INNER JOIN seats 
+  ON tickets.seat_id = seats.id
+INNER JOIN sections 
+  ON seats.section_id = sections.id
+WHERE customers.email = 'gennaro.rath@mcdermott.co';

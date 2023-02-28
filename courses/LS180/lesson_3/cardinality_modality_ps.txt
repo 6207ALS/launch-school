@@ -1,0 +1,30 @@
+// LS180 - Lesson 3, Database Diagrams: Cardinality and Modality Practice Problems
+
+
+// Q1
+Cardinality refers to the different types of relationships entities within a
+datatbase can have with each other. Specifically, it refers to the number of
+objects on each side of the relationship. These relationships are determined as
+'One-to-One', 'One-to-Many', and 'Many-to-Many'.
+
+
+// Q2
+Modality determines if the relationship between two entities is 'required' or
+'optional'. If the relationship is required, at least one instance of the entity
+is required. On the contrary, if the relationship is optional, an instance of
+the entity is not required for the relationship to exist. In other words, 
+modality is referred as the 'lower bound' on how many instances there can be in
+a relationship.
+
+
+// Q3
+As modality of relationship determines how many instances are required in a 
+relationship, a modality of one would indicate that at least one instance is 
+required. 
+
+
+// Q4
+Crow's foot notation was covered in the video. Crow's foot notation signifies
+both the cardinality and modality between two entities of a relationship. It
+determines if the cardinality is 'One-to-One', 'One-to-Many', or 'Many-to-Many'
+as well as if the modality is 'required' or 'optional'. 
