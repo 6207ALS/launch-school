@@ -1,0 +1,3 @@
+// LS180 - SQL Fundamentals: DML, SELECT part_number
+
+SELECT * FROM parts WHERE substring(part_number::text from 1 for 1) = '3';

@@ -1,0 +1,6 @@
+// LS180 - SQL Fundamentals: DML, UPDATE device_id
+
+
+UPDATE parts
+SET device_id = 1
+WHERE part_number = 7 OR part_number = 8;

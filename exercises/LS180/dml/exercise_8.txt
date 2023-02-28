@@ -1,0 +1,5 @@
+// LS180 - SQL Fundamentals: DML, Oldest Device
+
+SELECT devices.name FROM devices
+ORDER BY devices.created_at DESC
+LIMIT 1;

@@ -1,0 +1,14 @@
+// LS180 - SQL Fundamentals: DML, Delete Accelerometer
+
+DELETE FROM parts
+WHERE device_id = 1;
+
+DELETE FROM devices
+WHERE id = 1;
+
+Further Exploration:
+To delete both a device and its associated parts with one SQL, the tables,
+specifically 'parts', must be configured differently. The 'ON DELETE CASCADE'
+clause should be added to the FOREIGN KEY of the 'parts' table. In turn, the
+deletion of the associated PRIMARY KEY in the 'devices' table will cause the
+associated FOREIGN KEY in the 'parts' table to be deleted as well.
