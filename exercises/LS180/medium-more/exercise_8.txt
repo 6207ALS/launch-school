@@ -1,0 +1,54 @@
+// LS180 - SQL Fundamentals, Medium: Subqueries and More, 
+// EXPLAIN
+
+
+EXPLAIN SELECT name FROM bidders
+WHERE EXISTS (SELECT 1 FROM bids WHERE bids.bidder_id = bidders.id);
+
+                       QUERY PLAN
+--------------------------------------------------------------------------
+ Hash Join  (cost=33.38..66.47 rows=635 width=32)
+   Hash Cond: (bidders.id = bids.bidder_id)
+   ->  Seq Scan on bidders  (cost=0.00..22.70 rows=1270 width=36)
+   ->  Hash  (cost=30.88..30.88 rows=200 width=4)
+         ->  HashAggregate  (cost=28.88..30.88 rows=200 width=4)
+               Group Key: bids.bidder_id
+               ->  Seq Scan on bids  (cost=0.00..25.10 rows=1510 width=4)
+
+The EXPLAIN clause outputs the 'query plan' devised by the PostgreSQL engine 
+for the specified statement. The structure of the query plan is a node-tree,
+each line representing a node, or 'element', of the query. A note to take 
+regarding the ouput is the calculated 'cost parameter' for each node. Each
+line displays the estimated cost for that node (start-up cost, followed by
+total cost) in arbitrary units. Additional information includes the estimated 
+number of rows to be output by the node, and the estimated average width of the 
+rows in bytes. In this case, the start up cost for the entire query (first line)
+is 33.38 and the total cost is 66.47.
+
+
+EXPLAIN ANALYZE SELECT name FROM bidders
+WHERE EXISTS (SELECT 1 FROM bids WHERE bids.bidder_id = bidders.id);
+
+                                        QUERY PLAN
+---------------------------------------------------------------------------------------------------------------------
+ Hash Join  (cost=33.38..66.47 rows=635 width=32) (actual time=0.849..0.852 rows=6 loops=1)
+   Hash Cond: (bidders.id = bids.bidder_id)
+   ->  Seq Scan on bidders  (cost=0.00..22.70 rows=1270 width=36) (actual time=0.486..0.486 rows=7 loops=1)
+   ->  Hash  (cost=30.88..30.88 rows=200 width=4) (actual time=0.354..0.355 rows=6 loops=1)
+         Buckets: 1024  Batches: 1  Memory Usage: 9kB
+         ->  HashAggregate  (cost=28.88..30.88 rows=200 width=4) (actual time=0.351..0.352 rows=6 loops=1)
+               Group Key: bids.bidder_id
+               ->  Seq Scan on bids  (cost=0.00..25.10 rows=1510 width=4) (actual time=0.337..0.340 rows=26 loops=1)
+ Planning Time: 0.082 ms
+ Execution Time: 0.874 ms
+
+
+Using the 'ANALYZE' clause in addition to the 'EXPLAIN' clause will run the
+query and provide actual values as data. It should be noted that the 'EXPLAIN'
+clause, by itself, will not run the query and simply returns estimated values
+regarding the query. Its values are determined based on the query planner's
+knowledge of the schema and assumptions based on PostgreSQL system statistics.
+The 'ANALYZE' clause, on the other hand, runs the query and returns the recorded
+values. In this case, we can see that the data returned by 'ANALYZE' is the
+actual start-up time as well as the total time. The clause also returns the
+number of actual rows produced on each node rather than an estimated number. 

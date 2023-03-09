@@ -14,10 +14,10 @@ INSERT 0 1
 INSERT 0 1
 INSERT 0 1
 
-The output of loading the file was the lines shown above. Each line indicates
-what specific action (statement) was executed within the file. For instance, the
-line 'CREATE TABLE' indicates that a table was created. The line 'INSERT 0 1'
-indicates that 1 row of data was inserted into a table.
+The output from importing the file was the lines shown above. Each line 
+indicates what specific action (statement) was executed within the file. For 
+instance, the line 'CREATE TABLE' indicates that a table was created. The line 
+'INSERT 0 1' indicates that 1 row of data was inserted into a table.
 
 3. 
 The first line of the file states 'DROP TABLE IF EXISTS public.films;' The

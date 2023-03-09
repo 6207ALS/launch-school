@@ -1,0 +1,7 @@
+// LS180 - SQL Fundamentals, Medium: Subqueries and More, 
+// Query From a Transient Table
+
+SELECT MAX(bid_counts.count) FROM (
+  SELECT count(bids.bidder_id) FROM bids
+  GROUP BY bids.bidder_id 
+) AS bid_counts;
