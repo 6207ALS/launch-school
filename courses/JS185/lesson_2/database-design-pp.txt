@@ -1,0 +1,58 @@
+// JS185 Lesson 2: Database Designs - Practice Problems
+
+                        Table "public.expenses"
+   Column   |     Type     | Collation | Nullable |               Default
+------------+--------------+-----------+----------+--------------------------------------
+ id         | integer      |           | not null | nextval('expenses_id_seq'::regclass)
+ amount     | numeric(6,2) |           | not null |
+ memo       | text         |           | not null |
+ created_on | date         |           | not null |
+Indexes:
+    "expenses_pkey" PRIMARY KEY, btree (id)
+
+
+// Q1
+The largest value the 'amount' column can store is 9,999.99. The 'amount'
+column's data type is 'numeric(6.2)'. It can store up to 6 digits, with 2 digits
+used for decimal precision. It will not accept values larger than 9999.99.
+
+We can test this by attempting to insert a row is an 'amount' greater than
+9999.99. Consider the following SQL statement:
+
+/*
+INSERT INTO expenses VALUES (DEFAULT, 10000, 'coffee', CURRENT_DATE);
+
+ERROR:  numeric field overflow
+DETAIL:  A field with precision 6, scale 2 must round to an absolute value less than 10^4.
+*/
+
+The SQL statement shown above raises an error. It states that the value provided
+for the 'amount' column be less than the specified amount.
+
+
+// Q2
+The smallest value the 'amount' column can store is -9,999.99. The 'amount'
+column's data type is 'numeric(6.2)'. It can store up to 6 digits, with 2 digits
+used for decimal precision. It will not accept values smaller than -9999.99.
+
+We can test this by attempting to insert a row is an 'amount' less than
+-9999.99. Consider the following SQL statement:
+
+/*
+INSERT INTO expenses VALUES (DEFAULT, -10000, 'coffee', CURRENT_DATE);
+
+ERROR:  numeric field overflow
+DETAIL:  A field with precision 6, scale 2 must round to an absolute value less than 10^4.
+*/
+
+The SQL statement shown above raises an error. It states that the value provided
+for the 'amount' column be less than the specified amount.
+
+
+// Q3
+ALTER TABLE expenses
+ADD CHECK (amount > 0);
+
+The statement shown above alters the 'expenses' table by adding a CHECK
+constraint. The CHECK constraint ensures that the 'amount' column only contains
+postive values.

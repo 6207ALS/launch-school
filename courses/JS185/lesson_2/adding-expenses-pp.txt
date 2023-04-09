@@ -1,0 +1,19 @@
+// JS185 Lesson 2: Adding Expenses - Practice Problem
+
+
+// Q1 - Can you see any potential issues with the Solution code above?
+
+One potential issue is the fact that any reserved or unsafe characters from the
+user's arguments are not escaped. For instance, suppose the user passed in
+"Gas money for Karen's Car" as the 'memo' argument for the 'add' command. In
+SQL, single-quote characters must be escaped with an additional single quote, or
+an error is raised: 
+
+(node:7040) UnhandledPromiseRejectionWarning: Unhandled promise rejection 
+(rejection id: 1): error: syntax error at or near "s"
+
+In the text shown above, the error states that the Promise object used to 
+query with PostgreSQL was rejected. The application, at its current state, is 
+not capable of handling rejected Promise objects. In addition, the error states 
+that the cause of the error is due to a syntax error near the "s" character, 
+which hints at the unescaped single-quote.

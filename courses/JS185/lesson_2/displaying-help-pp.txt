@@ -1,0 +1,21 @@
+// JS185 Lesson 2: Displaying Help - Practice Problem
+
+
+// Q1
+const PROCESS = require('process');
+
+let args = PROCESS.argv;
+let command = args[2];
+
+
+On line 7, 'args' variable is declared and initialized with the the 
+PROCESS object's 'argv' property. The 'argv' property is an array containing the
+command-line arguments passed when the Node.js process is launched. According to
+documentations, 'The first element will be 'process.execPath'. The second
+element will be the path to the JavaScript file being executed. The remaining
+elements will be any additional command-line arguments.' 
+
+As such, any element beyond the second element will be arguments entered by the 
+user. On line 8, the 'command' variable is declared and initialized with 
+the third element of the 'argvs' array. It is used to determine if any 
+additional arguments were passed from the command-line interface.

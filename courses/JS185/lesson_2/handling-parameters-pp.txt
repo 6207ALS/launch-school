@@ -1,0 +1,31 @@
+// JS185 Lesson 2: Handling Parameters Safely - Practice Problem
+
+
+// Q1
+$ ./expense add 0.01 "', '2015-01-01'); DROP TABLE expenses; --"
+$ ./expense list
+  1 | Thu Oct 24 2019 |        14.56 | Pencils
+  2 | Thu Oct 24 2019 |         3.29 | Coffee
+  3 | Thu Oct 24 2019 |        49.99 | Text Editor
+  4 | Fri Oct 25 2019 |         3.59 | More Coffee
+  5 | Tue Oct 29 2019 |         0.01 | ', '2015-01-01'); DROP TABLE expenses; --
+
+
+The application can now handle any malicious arguments from the command line.
+The code was refactored to make use of node-postgres' "values" argument for its
+queries. The 'values' argument can be used to safely handle parameters passed 
+to queries. As shown above, any potentially harmful arguments passed from the
+user is safely escaped, handled, substituted for an appropriate input instead.
+
+
+// Q2
+{ error: bind message supplies 2 parameters, but prepared statement "" requires 3
+  at Connection.parseE (/expenses_app/node_modules/pg/lib/connection.js:604:11)
+  at Connection.parseMessage (/expenses_app/node_modules/pg/lib/connection.js:401:19)
+  at Socket.<anonymous> (/expenses_app/node_modules/pg/lib/connection.js:121:22)
+  at emitOne (events.js:115:13)
+...
+
+An error is raised if the number of elements in the "values" array argument 
+is not greater than or equal to the number of placeholders used in the query
+text.
