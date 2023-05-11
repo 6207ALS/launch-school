@@ -1,0 +1,48 @@
+LS202 HTML and CSS | Lesson 1: Semantics - Practice Problems
+
+// Q1
+Semantic tags:
+<article>
+<aside>
+<b>
+<footer>
+<h3>
+<header>
+<section>
+<strong>
+
+Non-semantic tags:
+<div>
+<span>
+
+// Q2
+The most suitable tag for the provided content would be the <article> tag. The
+grouped content are all related (thematic) and, overall, can be understood
+without any additional context. It is self-contained and resuable.
+
+However, the answer is contingent. Semantics depend on the context and intent 
+of the overall HTML file. The content can be considered a <section> or <aside> 
+depending on its surrounding content.
+
+// Q3
+The <blockquote> tag is a possible alternative for <sometag>. The <blockquote> 
+tag is used to indicate that the enclosed text is an extended quotation of 
+another source. The <address> tag, on the other hand, indicates that the nested 
+content is contact information for a person, organization, location, etc. The 
+content — an extended quote of Lincoln's Gettysburg Address — should rather be
+nested in a <blockquote> tag. Though, <article> is still a suitable tag for the
+content.
+
+// Q4
+A <section> tag may be the best replacement for <sometag>. The text appears to 
+be part of a larger body of work, but it cannot be a standalone block like an 
+article. It is also not an aside since it appears to be part of the main 
+document flow.
+Again, semantics depend on the content and intent. It is possible to argue for a
+different answer.
+
+// Q5
+The content within <sometag> appears as an additional comment, rather than part
+of the main text. In this case, the <aside> tag can be used to replace 
+<sometag>. Again, the answer is contingent to the context and intent of the
+HTML file.

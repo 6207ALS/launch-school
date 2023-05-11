@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- LS202 HTML and CSS | Lesson 1: Text Formatting - Practice Problems -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Text Formatting</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="">
+    <style>
+      body {
+        font-size: 20px;
+      }
+
+      .lorem-ipsum_article p {
+        font: italic bold 20px/2.5 Tahoma, "Trebuchet MS", Tahoma, sans-serif;
+        text-align: justify;
+        text-indent: 4em;
+      }
+
+      .finess_article h1 {
+        font-family: Georgia;
+        color: blue;
+      }
+
+      .finess_article p {
+        font-size: 14px;
+        font-family: Helvetica, Arial, sans-serif;
+        width: 500px;
+      }
+
+      .feColor-keyword {
+        font-family: monospace;
+        text-decoration: underline;
+        font-style: italic;
+        color: green;
+      }
+
+      .episode_section p {
+        font-size: 18px;
+      }
+
+      .episode_section mark {
+        font-family: Courier, monospace;
+        font-size: 12px;
+      }
+
+      .episode_section em {
+        font-size: 20px;
+      }
+
+      .episode_section strong {
+        font-size: 15px;
+      }
+
+      .shay-howe_link {
+        text-decoration: none;
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <article class="lorem-ipsum_article">
+      <header>
+        <h1>Lorem Ipsum Text</h1> 
+      </header>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+    </article>
+
+    <article class="finess_article">
+      <header>
+        <h1>Finessing &#39;feColorMatrix&#39;</h1>
+      </header>
+      <p>
+        Harness the power of <span class="feColor-keyword">feColorMatrix</span> to create detailed filters, with Una Kravets as your guide.
+      </p>
+    </article>
+
+    <section class="episode_section">
+      <p>That episode was <mark>un<strong>be<em>LIEVE</em></strong>able</mark>!</p>
+    </section>
+
+    <section class="hyperlinks_section">
+      <p>
+        The Creating Hyperlinks section of <a class="shay-howe_link" href="http://learn.shayhowe.com/html-css/getting-to-know-html/#creating-hyperlinks" target="_blank"> Getting to Know HTML </a> discusses
+        hyperlinks, or anchors. Be sure to work both "In Practice" sections; they
+        pick up from where you left off in an earlier reading assignment.
+      </p>
+    </section>
+
+  </body>
+</html>

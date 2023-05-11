@@ -1,0 +1,98 @@
+LS202 HTML & CSS | Lesson 2: The Box Model - Practice Problems
+
+
+// Q1
+The div would require a width of 580 pixels and a height of 360 pixels to fully
+contain its image element. Foremost, the div element has the value "border-box"
+for its "box-sizing" property. This means that its total dimensions account for
+its padding/border values as well. 
+
+In addition, the image element has the value "content-box" for its "box-sizing" 
+property. This means that the image's dimensions do NOT account for any margin 
+and border values. To determine its final dimensions, we must add any margin 
+and border values to its width and height.
+
+With an initial width of 500px, margin-right of 19px, margin-left of 11px,
+border-left of 4px, border-right of 4px, padding-left of 20px, and padding-right
+of 20px, the image's total width becomes 578px. 
+
+With an initial height of 300px, margin-top of 20px, margin-bottom of 
+10px, border-top of 4px, border-bottom of 4px, padding-top of 10px, and
+padding-bottom of 10px, the image's total height becomes 358px.
+
+The final dimension of the image comes out to be 578px width and 358px height.
+To accomodate for its 1px border, the div element must have a width of 580px
+and height of 360px.
+
+
+// Q2
+In terms of the section's dimensions, the answer remains the same: a width of
+580px and a height of 360px. The key difference between the two CSS files is
+that the section element has display property of "block," whereas the previous
+image element has a display property of "inline-block." The "block" property, 
+renders the section element on its own line, apart from its surrounding 
+elements. The "inline-block" property, on the other hand, renders surrounding 
+elements adjacent to the image element.
+
+
+// Q3
+Given that the em element is an "inline" element, we cannot determine its
+exact dimensions. "Inline" elements ignore any width/height properties and
+instead use values computed from the content. 
+
+However, if we assume that the "em" element is set to a width of 50px, the
+required width for the div would be 130px; it accounts for any additional
+margin, padding, and borders.
+
+If we assume that the "em" element is set to a height of 50px, the required 
+width for the div would be 80px; it accounts for any additional margin and 
+borders, but NOT margins (margin-top and margin-bottom are ignored for inline
+elements).
+
+
+// Q4
+The div element must have a width of 532 pixels and a height of 332 pixels. The
+article elements has a display property of "border-box." As such, the computed
+dimensions account for any additional padding or border (but not margin). 
+
+To determine the width, we can check the value for the explicit "width"
+property: the element has a width of 500px. However, we must also consider its
+margin, which has a margin-left of 11px and a margin-right of 19px. In addition,
+we must consider the div element's border property of 2px (1px for the left and
+right side). In total, we have a width of 532 pixels  (500 + 11 + 19 + 2).
+
+The determine the height, we can take the same steps. First, we check for an
+explicit "height" property of the article element (300px). Then, we take into
+account for any margins (20px for margin-top and 10px for margin-bottom).
+Finally, we consider the div element's border property of 2px (1px for the top
+and right side). In total, we have a width of 532 pixels (300 + 20 + 10 + 2).
+
+
+// Q5
+Element pairs 2, 3, and 6 will display side by side in the div element. In
+order for element pairs to display adjacent to each other, neither can be a
+block element. Block elements will occupy an entire line, prohibiting any other
+element from be rendered on that line. Pairs 2, 3, and 6 are pairs where neither
+elements are block elements.
+
+
+// Q6
+The two article elements will NOT be displayed side by side as article elements
+are block elements. As such, each element will be rendered on their own separate
+line. In order to have them rendered adjacent to eachother, we can add the
+display property with a value of "inline-block" to the "article" selector.
+
+However, the two article elements will still not be rendered side by side as 
+their padding and border make them too big. To have the elements account for
+their padding and border and still have a width of 50% of their parent element,
+we can provide a box-sizing property of "border-box" to their styling. This
+ensures that their final computed width will remain 50% regardless of any
+additional padding/borders.
+
+// Q6
+The article elements will no longer be rendered side by side. When the browser
+processes the document, any whitespace (newline and several spaces) is rendered
+as a single space. Thus, the two articles (with a display property of 
+"inline-block") require 900 pixels plus a few more pixles to account for the
+single space character. Since that exceeds the 900-pixel width of the section
+element, the two article elements no longer fit on the same line.

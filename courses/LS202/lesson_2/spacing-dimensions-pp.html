@@ -1,0 +1,179 @@
+<!--LS202 HTML & CSS | Lesson 2: Spacing and Dimensions - Practice Problems -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="">
+    <style>
+
+      body {
+        margin: 50px;
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+        max-width: 800px;
+        min-width: 500px;
+        width: 100%;
+      }
+
+      div {
+        width: 300px;
+        height: 300px;
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 20px;
+      }
+
+      .div1 {
+        background-color: #fcc;
+        padding: 20px;
+      }
+
+      .div2 {
+        background-color: #ccf;
+        border: 5px black solid;
+      }
+
+      ul {
+        background-color: #a7ceff;
+        border: 10px solid blue;
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        background-color: #ffc;
+        display: inline-block;
+        width: 23%;
+        border: 10px solid red;
+        box-sizing: border-box;
+        margin: 0 1%;
+        line-height: 120px;
+        min-height: 120px;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <img src="https://d3jtzah944tvom.cloudfront.net/lesson_2/exercises_dimension_and_spacing/H%C3%B4tel_des_Invalides_-_20150801_16h09_%2810630%29.jpg"
+    alt="Demonstration of image sizing">
+
+    <div class="div1"></div>
+    <div class="div2"></div>
+
+    <ul>
+      <li>Item 1</li><!--
+      --><li>Item 2</li><!--
+      --><li>Item 3</li><!--
+      --><li>Item 4</li>
+    </ul>
+  </body>
+</html>
+
+<!--
+
+// Q1
+img {
+  display: block;
+  margin: 0 auto; /* 0: top and bottom margin, auto: left and right */
+  width: 800px;
+}
+
+
+// Q2
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+
+// Q3
+img {
+  display: block;
+  height: 533px;
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+// Q4
+img {
+  /*DELETED height: 533px;*/
+  min-width: 500px;
+}
+
+
+// Q5
+div {
+  height: 300px;
+  width: 300px;
+}
+
+.red {
+  background-color: #fcc;
+}
+
+.blue {
+  background-color: #ccf;
+}
+
+
+// Q6
+.blue {
+  background-color: #ccf;
+  border: 5px solid black;
+}
+
+The blue div has a greater dimension because of its border. The border adds an
+additional 5 pixels to each side.
+
+
+// Q7
+div {
+  box-sizing: border-box;
+  height: 300px;
+  width: 300px;
+}
+
+.red {
+  background-color: #fcc;
+  padding: 20px;
+}
+
+
+// Q8
+div {
+  ...
+  display: inline-block;
+}
+
+
+// Q9
+div {
+  ...
+  margin: 20px;
+}
+
+
+// Q10
+li {
+  ...
+  display: inline-block;
+  width: 25%;
+}
+
+
+// Q11
+li {
+  ...
+  width: 23%;
+  margin: 0 1%;
+}
+-->
