@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!--LS202 HTML & CSS | Lesson 4: Lists - Practice Problems -->
+<html>
+  <head>
+    <title>Lists</title>
+    <meta charset="utf-8">
+    <style>     
+      section {
+        border: 1px solid black;
+        margin-bottom: 50px;
+      }
+
+      .articles {
+        list-style: none;
+      }
+
+      .reasons {
+        list-style: upper-roman;
+      }
+
+      .navigation {
+        box-sizing: border-box;
+      }
+
+      .navigation ul {
+        font-size: 0;
+        padding: 0;
+        background-color: yellow;
+        width: 100%;
+        list-style: none;
+      }
+
+      .navigation li {
+        font-size: 20px;
+        display: inline-block;
+        width: 25%;
+        color: blue;
+        text-align: center;
+      }
+
+      .navigation a:hover,
+      .navigation a:focus {
+        background-color: green;
+        color: yellow;
+      }
+
+      .navigation a {
+        box-sizing: border-box;
+        display: inline-block;
+        line-height: 2.5;
+        padding: 0 10px;
+        text-decoration: none;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>The Next Reckoning: Capitalism and Climate Change</h1>
+      <p>By NATHANIEL RICH</p>
+      <p>
+        The world’s most difficult problem has a solution so simple that it can be
+        expressed in four words: Stop burning greenhouse gases. How exactly to pull
+        this off is somewhat more complicated — just not as complicated as most
+        Americans have been led to believe.
+      </p>
+      <h2>Related articles</h2>
+      <ul class="articles">
+        <li>What Survival Looks Like After the Oceans Rise</li>
+        <li>How Big Business is Hedging Against the Apocalypse</li>
+        <li>Climate Chaos is Coming–and the Pinkertons Are Ready</li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>5 Reasons to Use jQuery</h1>
+      <ol reversed class="reasons">
+        <li>Open Source</li>
+        <li>Endless Tutorials</li>
+        <li>Huge Library</li>
+        <li>Cross-browser Compatibility</li>
+        <li>Large Variety of Plugins</li>
+      </ol>
+    </section>
+
+    <section>
+      <dl class="definitions">
+        <dt>HTML</dt>
+        <dd>
+          Hypertext Markup Language, a standardized system for tagging text files to
+          achieve font, color, graphic, and hyperlink effects on World Wide Web pages.
+        </dd>
+
+        <dt>Semantic</dt>
+        <dd>
+          Relating to meaning in language or logic.
+        </dd>
+
+        <dt>CSS</dt>
+        <dd>
+          A style sheet language used for describing the presentation of a document
+          written in a markup language.
+        </dd>
+      </dl>
+    </section>
+
+    <section>
+      <nav class="navigation">
+        <ul>
+          <li><a>Home</a></li>
+          <li><a>Projects</a></li>
+          <li><a>Team</a></li>
+          <li><a>Help</a></li>
+        </ul>
+      </nav>
+    </section>
+
+  </body>
+</html>

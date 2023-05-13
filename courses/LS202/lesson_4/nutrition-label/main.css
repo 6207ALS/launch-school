@@ -1,0 +1,150 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+h1 {
+  font-family: Franklin Gothic Heavy, Helvetica Black, Arial;
+  font-weight: bold;
+  font-size: 105px;
+  padding: 0;
+  margin: 0;
+}
+
+header p {
+  font-size: 33.5px;
+}
+
+body {
+  font-family: Helvetica; 
+  padding: 5px 10px;
+  margin: 5px auto;
+  box-sizing: border-box;
+  width: 684px;
+  height: 1342px;
+  border: 4px solid black;
+}
+
+main section:nth-child(1) > p:nth-child(1),
+main section:nth-child(2) > p:nth-child(1) {
+  font-size: 27px;
+}
+
+main section:nth-child(1) {
+  border-top: 30px solid black;
+  border-bottom: 15px solid black;
+  margin: 5px 0;
+  padding-top: 6px;
+}
+
+main section:nth-child(2) dd {
+  margin-left: 34px;
+}
+
+main section:nth-child(2) {
+  border-bottom: 30px solid black;
+}
+
+main p {
+  font-size: 34px;
+  border-bottom: 1.5px solid gray;
+  padding: 5px 0 6.5px 0;
+}
+
+main table {
+  width: 100%;
+  font-size: 29px;
+}
+
+em {
+  font-style: italic;
+}
+
+ul {
+  list-style: asterick;
+}
+
+section:nth-child(3) > dl {
+  font-size: 26px;
+  margin: 18px 0 0 0;
+}
+
+section:nth-child(3) > dl dd {
+  margin-left: 20px;
+}
+
+section:nth-child(3) table {
+  font-size: 25px;
+}
+
+section:nth-child(3) table thead {
+  line-height: 36px;
+}
+
+section:nth-child(3) table thead th {
+  border-bottom: 1px solid black;
+  line-height: 40px;
+}
+
+section:nth-child(3) table:nth-of-type(2) {
+  line-height: 29px;
+}
+
+section:nth-child(3) table:nth-of-type(2) tbody tr:nth-child(1) dt {
+  padding-top: 5px;
+}
+
+section:nth-child(3) table dd {
+  margin-left: 35px;
+}
+
+th {
+  text-align: left;
+}
+
+.right-text {
+  text-align: right;
+}
+
+strong {
+  font-weight: 900;
+}
