@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Contact Form</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+  </head>
+  <body>
+    <form action="#" method="POST">
+      <fieldset>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" name="firstName">
+        
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" name="lastName">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"
+              placeholder="example@domain.com">
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city">
+
+        <label for="state">State</label>
+        <select id="state" name="state">
+          <option selected>AK</option>
+          <option>AL</option>
+          <option>AR</option>
+          <option>AZ</option>
+          <option>CA</option>
+          <option>CO</option>
+          <option>CT</option>
+          <option>DC</option>
+          <option>DE</option>
+          <option>FL</option>
+          <option>GA</option>
+          <option>HI</option>
+          <option>IA</option>
+          <option>ID</option>
+          <option>IL</option>
+          <option>IN</option>
+          <option>KS</option>
+          <option>KY</option>
+          <option>LA</option>
+          <option>MA</option>
+          <option>MD</option>
+          <option>ME</option>
+          <option>MI</option>
+          <option>MN</option>
+          <option>MO</option>
+          <option>MS</option>
+          <option>MT</option>
+          <option>NC</option>
+          <option>ND</option>
+          <option>NE</option>
+          <option>NH</option>
+          <option>NJ</option>
+          <option>NM</option>
+          <option>NV</option>
+          <option>NY</option>
+          <option>OH</option>
+          <option>OK</option>
+          <option>OR</option>
+          <option>PA</option>
+          <option>RI</option>
+          <option>SC</option>
+          <option>SD</option>
+          <option>TN</option>
+          <option>TX</option>
+          <option>UT</option>
+          <option>VA</option>
+          <option>VT</option>
+          <option>WA</option>
+          <option>WI</option>
+          <option>WV</option>
+          <option>WY</option>
+        </select>
+
+        <label for="zipcode">Zip Code</label>
+        <input type="text" id="zipcode" name="zipcode"
+               maxlength="5" placeholder="#####">
+      </fieldset>
+
+      <fieldset>
+        <label for="color">What is your favorite color?</label>
+        <select id="color" name="color">
+          <option value="red" selected>Red</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="pink">Pink</option>
+        </select>
+
+ 
+        <label for="technologies">Which web technologies do you want to learn?</label>
+        <ul>
+          <li>
+            <label>
+              <input type="checkbox" name="technology" value="html">
+              HTML
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="technology" value="css">
+              CSS
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="technology" value="javascript">
+              JavaScript
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="technology" value="ruby">
+              Ruby
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="technology" value="rails">
+              Rails
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+
+      <fieldset>
+        <label for="comment">Additional comments:</label>
+        <textarea id="comment" rows="6" cols="80"></textarea>
+      </fieldset>
+
+      <fieldset>
+        <input type="hidden" value="[currentDate]">
+        <input type="submit" value="Send">
+        <input type="reset" value="Reset">
+      </fieldset>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Form Layout</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+  </head>
+  <body>
+    <form action="#" class="styled-form side-by-side">
+      <fieldset>
+        <dl>
+          <dt><label for="text_field">Input Field</label></dt>
+          <dd><input type="text" id="text_field" name="text_field"></dd>
+    
+          <dt><label for="another_field">Another Field</label></dt>
+          <dd><input type="text" id="another_field" name="another_field"></dd>
+        </dl>
+      </fieldset>
+    </form>
+
+    <form action="#" class="styled-form top-to-bottom">
+      <fieldset>
+        <dl>
+          <dt><label for="name">Name</label></dt>
+          <dd><input type="text" id="name"></dd>
+        </dl>
+    
+        <dl class="address">
+          <dt><label for="address1">Address</label></dt>
+          <dd>
+            <input type="text" id="address1">
+            <input type="text" id="address2">
+          </dd>
+        </dl>
+    
+        <dl class="city partial">
+          <dt><label for="city">City</label></dt>
+          <dd><input type="text" id="city"></dd>
+        </dl>
+    
+        <dl class="state partial">
+          <dt><label for="state">State</label></dt>
+          <dd>
+            <select id="state">
+              <option>AK</option>
+              <option>AL</option>
+              <!-- You can download the complete list of states at -->
+              <!-- https://launchschool.com/gists/2424a869 -->
+            </select>
+          </dd>
+        </dl>
+    
+        <dl class="zipcode partial">
+          <dt><label for="zipcode">Zip</label></dt>
+          <dd><input type="text" id="zipcode"></dd>
+        </dl>
+    
+      </fieldset>
+    </form>
+  </body>
+</html>

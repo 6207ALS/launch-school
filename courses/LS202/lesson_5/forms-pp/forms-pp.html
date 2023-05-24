@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Forms</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+  </head>
+  <body>
+    <!-- Q1 -->
+    <form action="#" method="POST">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"
+             autocomplete="off" autocapitalize="none"
+             autocorrect="off" required>
+
+      <label for="phoneNumber">Phone Number: </label>
+      <input type="tel" id="phoneNumber "name="phoneNumber" required>
+
+      <input type="submit" value="Send">
+    </form>
+
+    <!-- Q2 to Q6 -->
+    <form action="#" method="POST">
+      <fieldset>
+        <dl>
+          <dt><label for="firstName">First Name:</label></dt>
+          <dd>
+            <input type="text" id="firstName" name="firstName" required>
+          </dd>
+
+          <dt><label for="lastName">Last Name:</label></dt>
+          <dd>
+            <input type="text" id="lastName" name="lastName" required>
+          </dd>
+
+          <dt><label for="email">Email:</label></dt>
+          <dd>
+            <input type="email" id="email" name="email"
+              autocomplete="off" autocapitalize="none"
+              autocorrect="off" required>
+          </dd>
+
+          <dt><label for="phoneType">Phone Type:</label></dt>
+          <dd>
+            <select id="phoneType" name="phoneType">
+              <option value="home" selected>Home</option>
+              <option value="business">Business</option>
+              <option value="mobile">Mobile</option>
+            </select>
+          </dd>
+
+          <dt><label for="phoneNumber">Phone Number: </label></dt>
+          <dd>
+            <input type="tel" id="phoneNumber" name="phoneNumber" 
+                   placeholder="###-###-####" required>
+          </dd>
+          
+          <dt><label for="message">Message:</label></dt>
+          <dd>
+            <textarea id="message" name="message" 
+                      rows="6" cols="80" placeholder="Type your message here."></textarea>
+          </dd>
+        </dl>
+        <input type="submit" value="Send">  
+      </fieldset>
+    </form>
+
+    <!-- Q7 -->
+    <form action="#" method="GET">
+      <fieldset>
+        <label for="searchTerm">Search for</label></dt>
+        <input type="text" id="searchTerm">
+      </fieldset>  
+
+      <fieldset>
+        <input type="radio" id="tv" name="searchCategory" value="tv" required>
+        <label for="tv">TV</label>
+
+        <input type="radio" id="movies" name="searchCategory" value="movies" required>
+        <label for="movies">Movies</label>
+
+        <input type="radio" id="music" name="searchCategory" value="music" required>
+        <label for="music">Music</label>
+      </fieldset>
+
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- Q8 to Q10 -->
+    <form action="#" method="POST">
+      <fieldset>
+        <dl>
+          <dt><label for="movie">Movie</label></dt>
+          <dd>
+            <select id="movie" name="movie" size="4">
+              <option value="alien" selected>Alien</option>
+              <option value="looper">Looper</option>
+              <option value="frozen">Frozen</option>
+              <option value="Tommy-Boy">Tommy Boy</option>
+            </select>
+          </dd>
+  
+          <dt><label for="rating">Rating</label></dt>
+          <dd>
+            <select id="rating" name="rating">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </dd>
+        
+          <div>
+            <input type="checkbox" id="addFavorites" name="addFavorites" checked>
+            <label for="addFavorites">Add to my favorites</label>
+          </div>
+        </dl>
+      </fieldset>
+      <button type="submit">Rate Movie</button>
+    </form>
+
+    <!-- Q11 to Q13-->
+    <form action="#" method="GET">
+      <fieldset>
+        <dl>
+          <dt>Category</dt>
+          <dd>
+            <select name="category" size="3">
+              <option value="core">Core</option>
+              <option value="plugins-libraries">Plugins and Libraries</option>
+              <option value="conventions">Conventions</option>
+              <option value="reviews">Reviews</option>
+              <option value="opinion">Opinion</option>
+              <option value="people">People</option>
+            </select>
+          </dd>
+        </dl>
+        
+        <!-- Q11
+        <ul>
+          <li>
+            <label>
+              <input type="radio" name="category" value="core" required>
+              Core
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="category" value="plugin-libraries" required>
+              Plugins and Libraries
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="category" value="conventions" required>
+              Conventions
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="category" value="reviews" required>
+              Reviews
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="category" value="opinion" required>
+              Opinions
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="radio" name="category" value="people" required>
+              People
+            </label>
+          </li>
+        </ul> 
+        -->
+        <dl>
+          <dt>Tag</dt>
+          <dd>
+            <select name="tag" size="3" multiple >
+              <option value="html">HTML</option>
+              <option value="css">CSS</option>
+              <option value="javascript">JavaScript</option>
+              <option value="ruby">Ruby</option>
+              <option value="rails">Rails</option>
+              <option value="python">Python</option>
+              <option value="django">Django</option>
+            </select>
+          </dd>
+        </dl>
+        
+        <!-- Q11
+        <ul>
+          <li>
+            <label>
+              <input type="checkbox" name="tag" value="html">
+              HTML
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="tag" value="css">
+              CSS
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="tag" value="javascript">
+              JavaScript
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="tag" value="ruby">
+              Ruby
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="tag" value="rails">
+              Rails
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="tag" value="python">
+              Python
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="tag" value="django">
+              Django
+            </label>
+          </li>
+        </ul>
+        -->
+        
+        <input type="reset">
+        <input type="submit" value="Submit">
+      </fieldset>
+    </form>
+  </body>
+</html>
