@@ -1,0 +1,38 @@
+body, section, article, aside {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgba(128, 128, 128, 0.466);
+}
+
+section {
+  background-color: white;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.first,
+.second {
+  box-sizing: border-box;
+  float: left;
+  padding: 1rem;
+}
+
+.first {
+  background-color: rgb(170, 200, 255);
+  width: 70%;
+}
+
+.second {
+  background-color: rgb(193, 232, 193);
+  float: none;
+  overflow: hidden;
+}
+
+.third {
+  clear: both;
+  background-color: rgb(255, 212, 212);
+  padding: 1rem;
+}

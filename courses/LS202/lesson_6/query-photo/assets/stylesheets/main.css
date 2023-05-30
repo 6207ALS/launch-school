@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #151515;
+  color: #f0f0f0;
+  font: normal 16px Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px 0 20px 0;
+}
+
+.photo-gallery {
+  box-sizing: border-box;
+  padding: 15px;
+  max-width: 1000px;
+  background-color: #333;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+figure img {
+  border: 15px solid white;
+}
+
+img {
+  box-sizing: border-box;
+  border: 3px solid white;
+  width: 100%;
+}
+
+.gallery {
+  display: flex;
+  justify-content: flex-start;
+  margin: 20px -15px 0 -15px;
+}
+
+.gallery div {
+  box-sizing: border-box;
+  padding: 15px;
+  display: inline-block;
+}
+
+/* Devices with min width of 1280px: display 4 images per row */
+@media screen and (min-width: 1280px) {
+  .central-photo {
+    width: 950px;
+  }
+
+  .photo-gallery {
+    flex-direction: row;
+    max-width: 100%;
+  }
+
+  .gallery {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .gallery div:nth-child(1) {
+    padding-top: 0;
+  }
+}
+
+/* Devices with max width of 1280px: limit gallery to 3 images per row. */
+@media screen and (max-width: 1279px) {
+  .gallery {
+    flex-wrap: wrap;
+  }
+  
+  .gallery div {
+    max-width: 25%;
+  }
+}
+
+/* Devices with max width of 1280px: limit gallery to 3 images per row. */
+@media screen and (max-width: 900px) {
+  .gallery {
+    flex-wrap: wrap;
+  }
+  
+  .gallery div {
+    max-width: calc(100%/3);
+  }
+}
+
+/* Devices with max width of 600px: limit gallery to 2 images per row. */
+@media screen and (max-width: 600px) {
+  .gallery {
+    flex-wrap: wrap;
+  }
+  
+  .gallery div {
+    max-width: 50%;
+  }
+}

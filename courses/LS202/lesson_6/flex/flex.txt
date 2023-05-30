@@ -1,0 +1,80 @@
+LS202 HTML & CSS | Lesson 6 - Guided Project: Flex
+
+// Q1
+Going from top to bottom, here are the initial thoughts on formatting the file:
+
+1. The navigation bar must be converted into a horizontal bar. That is, the
+individual links should be displayed side-by-side, not vertically.
+
+2. The components of the main section (two green containers and white container)
+should also be displayed side-by-side, not vertically. Also, the white 
+container, being the main content of the page, should have larger width than 
+the two green containers.
+
+3. The components of the footer (the airplane image and copyright statement) 
+should also be displayed side-by-side. The image should be as tall as the
+copyright statement.
+
+Some other notes include:
+  - There appears to be margins/padding placed on the elements. They should be
+    removed
+
+  - The airplane image is placed within an orange container. That should be
+    considered when placing the image and copyright statement together.
+
+
+// Q2
+* {
+  margin: 0;
+  padding: 0;
+}
+
+Every element was stripped to 0-margin and 0-padding to remove any default
+styles.
+
+
+// Q3
+header { 
+  background-color: blue;
+}
+
+
+// Q4
+ul {
+  ...
+  display: flex;
+}
+
+
+// Q5
+main {
+  display: flex;
+}
+article {
+  flex: 2;
+}
+aside {
+  flex: 1;
+}
+
+
+// Q6
+footer {
+ ....
+  display: flex;
+  justify-content: space-between;
+}
+
+
+// Q7
+footer {
+  ...
+  flex-flow: row-reverse;
+}
+
+
+// Q8
+footer {
+  ...
+  align-items: center;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--LS202 HTML & CSS | Lesson 6: Practice Problems - Floats(2) -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JS Bin</title>
+    <style>
+      p {
+        padding: 1em;
+        margin: 0;
+      }
+
+      main {
+        min-width: 600px;
+      }
+
+      main > p {
+        box-sizing: border-box;
+        background: #18aaff;
+        width: 80%;
+        float: right;
+      }
+
+      #floated {
+        background: #ecaa33;
+        float: left;
+        width: 20%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <div id="floated">
+        <p>This paragraph should appear on its own line.</p>
+      </div>
+      <p>This paragraph should appear below the div. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </main>
+  </body>
+</html>
+
+<!-- Answers 
+
+// Q1
+#floated {
+  ...
+  float: left;
+}
+
+
+// Q2
+The blue paragraph "wraps" around the orange paragraph because the orange
+paragraph is set to float left. Floating elements do not follow the flow of the
+document, but affect the positioning of surrounding elements.
+
+To force the blue paragraph to be positioned beneath the orange paragraph, it
+must have a "clear" property with the value of "both" (in this case). The
+"clear" property specifies if the element must be moved below the floating
+elements that precede it.
+
+main > p {
+  ...
+  clear: left;
+}
+
+
+// Q3
+Floating elements (similar to inline elements) will take up as much space it
+needs to display its content. In this case, the orange container contains less
+content than the blue container.
+To have the orange container span as wide as the blue container, it must have a
+width of 100%, to fill up the entirety of its row.
+
+#floated {
+  ...
+  width: 100;
+}
+
+
+// Q4
+main > p {
+  margin-left: 20%;
+}
+
+#floated {
+  ...
+  width: 20%;
+}
+
+
+// Q5
+main > p {
+  ...
+  float:right;
+}
+
+The blue element ends up too large to fit within the remaining space. Floating
+elements will take up as much space as it needs to display its content. As the
+blue container spans the entire width of the display, it is displayed on the
+next row.
+
+
+// Q6
+The blue container had some additional box spacing that added to its total
+width. To account for any additional margin/padding, the container can be
+provided a "box-sizing" property with a value of "border-box."
+
+main > p {
+  ...
+  box-sizing: border-box;
+}
+-->

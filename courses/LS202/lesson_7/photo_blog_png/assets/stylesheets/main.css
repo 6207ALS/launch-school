@@ -1,0 +1,140 @@
+/*
+----------------------------------------
+Tantek Celik's Whitepsace Reset
+     Author:  	Tantek Celik, Shane Riley
+    Version:  	(CC) 2010 Some Rights Reserved
+                - http://creativecommons.org/licenses/by/2.0
+Description:	Resets default styling of common browsers to a common base
+----------------------------------------
+*/
+
+ul, ol { list-style: none; }
+h1, h2, h3, h4, h5, h6, pre, code { font-size: 1rem; }
+
+ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote,
+fieldset,input, dl, dt, dd, figure, figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+a img, :link img, :visited img, fieldset { border: none; }
+address { font-style: normal; }
+
+header, section, article, nav, footer, hgroup, details, summary, figure, main {
+  display: block;
+}
+
+mark {
+  color: inherit;
+  background: transparent;
+}
+
+abbr { border: none; }
+summary::-webkit-details-marker { display: none; }
+
+body {
+  background-image: linear-gradient(to bottom,#d1dbbd, #fcfff5);
+  background-repeat: no-repeat;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #3e606f;
+}
+
+header {
+  box-sizing: border-box;
+  width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.logo-container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 0;
+}
+
+.logo-container h1 {
+  margin: 0 0 15px 10px;
+  font-size: 36px;
+  color: #193441;
+}
+
+nav ul {
+  display: flex;
+  margin: 0 -5px;
+}
+
+nav li {
+  font-size: 17px;
+  line-height: 1rem;
+  color: #b1c3b7;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: #fcfff5;
+  padding: 15px 40px;
+  margin: 0 2.5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.active {
+  background-color: #91aa9d;
+  color: #fcfff5;
+}
+
+main {
+  box-sizing: border-box;
+  width: 960px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.291);
+}
+
+main h2 {
+  font-size: 32px;
+  padding-bottom: 0px;
+}
+
+.masthead {
+  margin-bottom: 40px;
+}
+
+.grid-container {
+  margin-top: 38px;
+  font-size: 19px;
+  display: grid;
+  grid-template-areas:
+    "p1 p1 p1"
+    "p2 p2 img"
+    "p3 p3 img"
+    "gap gap img";
+  grid-row-gap: 20px;
+}
+
+main p:nth-child(1) {
+  grid-area: p1;
+}
+
+main p:nth-child(2) {
+  grid-area: p2;
+}
+
+main p:nth-child(3) {
+  grid-area: p3;
+}
+
+main img {
+  grid-area: img;
+}
+
+footer {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 960px;
+  display: flex;
+  padding: 18px 0 40px 0;
+}

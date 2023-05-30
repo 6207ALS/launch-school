@@ -1,0 +1,308 @@
+html {
+  font: normal 16px Helvetica, Arial, sans-serif;
+}
+
+main {
+  box-sizing: border-box;
+  margin: auto;
+  width: 1000px;
+  border: 2px solid rgb(140, 140, 140);
+  padding: 20px;
+}
+
+main > section > p {
+  margin: 16px 0 25px 0;
+  line-height: 2.25rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
+}
+
+.courier {
+  font-family: monospace;
+  vertical-align: top;
+}
+
+h1, h2, h3 {
+  color: #ce4a4a;
+  margin: 20px 0;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.inline-figure ul {
+  list-style: none;
+  border: 2px dashed black;
+  padding: 30px;
+  width: 650px;
+  margin: 45px;
+}
+
+.inline-figure li {
+  display: inline;
+}
+
+.inline-figure.two li {
+  text-align: center;
+  margin: 30px;
+}
+
+.inline-figure.three li,
+.inline-figure.four li {
+  color: white;
+  padding: 30px;
+  background-color: green;
+  border: 1px solid rgb(0, 89, 0);
+}
+
+.inline-figure.four li {
+  box-sizing: border-box;
+  float: left;
+  margin: 15px;
+  width: 120px;
+}
+
+.inline-figure.four ul::after {
+  clear: left;
+  display: block;
+  content: "";
+}
+
+.block-figure.one p {
+  background-color: dodgerblue;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+.block-figure.two p {
+  background-color: green;
+  color: white;
+  padding: 20px;
+  margin: 20px;
+}
+
+.block-figure.three p {
+  background-color: tomato;
+  color: white;
+  width: 90px;
+}
+
+.block-figure.four {
+  background-color: pink;
+  color: white;
+  width: 180px;
+  height: 120px;
+  margin-left: 20px;
+}
+
+.block-figure.four p {
+  padding: 20px;
+}
+
+.floatLeft {
+  float: left;
+}
+
+.floatRight {
+  float: right;
+}
+
+.float-block-figure.one::after,
+.float-block-figure.two::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.float-block-figure.one .floatLeft p {
+  border: 1px solid red;
+}
+
+.float-block-figure.one .floatLeft p,
+.float-block-figure.two .floatRight p {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.float-block-figure.one .floatRight p,
+.float-block-figure.two .floatLeft p {
+  background-color: tomato;
+  color: white;
+  border: red;
+}
+
+.float-block-figure.two .floatLeft {
+  width: 40%;
+}
+
+.float-block-figure.two .floatRight {
+  width: 50%;
+}
+
+.float-block-figure.two p {
+  text-align: center;
+  padding: 23px;
+}
+
+.float-block-figure.three {
+  box-sizing: border-box;
+}
+
+.float-block-figure.three a {
+  box-sizing: border-box;
+  text-align: center;
+  background-color: dodgerblue;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  display: block;
+}
+
+.inline-block-figure.one ul {
+  margin: auto;
+  text-align: center;
+}
+
+.inline-block-figure.one li {
+  background-color: dodgerblue;
+  color: white;
+  display: inline-block;
+  padding: 20px 60px;
+  margin: 10px;
+}
+
+.inline-block-main {
+  margin-bottom: 50px;
+}
+
+.floats-positioning-header {
+  text-align: center;
+  border-top: 2px dotted black;
+  padding-top: 40px;
+}
+
+.floats-positioning-figure.one div:nth-child(1),
+.floats-positioning-figure.one div:nth-child(2) {
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.floats-positioning-figure.one div:nth-child(1) {
+  background-color: tomato;
+  width: 450px;
+  float: left;
+}
+
+.floats-positioning-figure.one div:nth-child(2) {
+  background-color: dodgerblue;
+  width: 505px;
+  float: left;
+}
+
+.floats-positioning-figure.one div:nth-child(3) {
+  background-color: green;
+  width: 100%;
+  height: 40px;
+}
+
+.floats-positioning-figure.one::after {
+  background-color: green;
+  color: white;
+  content: "Box-3";
+  text-align: center;
+  display: block;
+  clear: both;
+  width: 100%;
+  padding: 20px 0;
+}
+
+p[class="courier"] {
+  line-height: 0.25rem;
+}
+
+.position-list {
+  margin: 20px 0 40px 40px;
+}
+
+.position-list li {
+  font-style: italic;
+  line-height: 2rem;
+}
+
+.positioning-figure.one {
+  background-color: dodgerblue;
+  color: white;
+  position: fixed;
+  left: 30px;
+  bottom: 60px;
+
+  border-radius: 10px;
+}
+
+.code {
+  margin: 60px 0;
+}
+
+.positioning-figure.one p {
+  width: 80px;
+  padding: 10px 70px;;
+}
+
+.positioning-figure.two p {
+  background-color: tomato;
+  color: white;
+
+  text-align: center;
+  padding: 25px 60px;
+
+  box-sizing: border-box;
+  width: 325px;
+
+  position: relative;
+  left: -100px;
+  bottom: -32px;
+
+  border-radius: 10px;
+}
+
+.positioning-absolute {
+  position: relative;
+  display: block;
+}
+
+.positioning-figure.three p {
+  background-color: green;
+  color: white;
+
+  display: block;
+  text-align: center;
+  padding: 25px 30px;
+  margin: 0 0 30px 0;
+
+  box-sizing: border-box;
+  width: 200px;
+
+  position: absolute;
+  top: -30px;
+  left: 230px;
+
+  border-radius: 10px;
+}

@@ -1,0 +1,82 @@
+LS202 HTML & CSS | Lesson 6 - Guided Project: Grid
+
+// Q1
+The following are some initial notes regarding the current state of the page:
+
+1. The entire page layout can be configured through CSS Grid.
+
+2. The navigation bar must be displayed horizontally, not vertically.
+
+3. The 6 main components of the (2 green, 1 white, 1 pink, and 1 blue container)
+   can be placed within a grid. 
+     - There should be 4 columns, each cell having the width of a green 
+       container.
+
+     - There should be 2 rows, both with the same heights.
+
+4. Any unnessary margins/padding should be removed. 
+
+5. The footer could be formatted with CSS Flex or CSS Grid.
+
+
+// Q2
+* {
+  margin: 0;
+  padding: 0;
+}
+
+Every element within the page had their default margin/padding styles reset.
+
+
+// Q3
+nav ul {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+
+// Q4
+body {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: min-content;
+  grid-template-areas:
+    "header header header"
+    "nav nav nav"
+    "aside1 art1 aside2"
+    "aside3 art2 art2"
+    "foot foot foot";
+}
+
+header {
+  grid-area: header;
+}
+nav {
+  grid-area: nav;
+}
+#aside-1 {
+  grid-area: aside1;
+}
+#aside-2 {
+  grid-area: aside2;
+}
+#aside-3 {
+  grid-area: aside3;
+}
+#article-1 {
+  grid-area: art1;
+}
+#article-2 {
+  grid-area: art2;
+}
+footer {
+  grid-area: foot;
+}
+
+Each component of the webpage was assigned to their respective area in the
+grid-template-area defined in the body selector.
+
+The grid-template-area defines what cells in the grid each area should occupy.
+
+
+// Q5
