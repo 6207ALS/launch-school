@@ -1,0 +1,145 @@
+body, img {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font: 400 20px 'Nunito', sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+header {
+  background-image: url("../images/bg_body.gif");
+  padding: 135px 0 0 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+header img {
+  align-self: center;
+  padding: 0 0 125px 0;
+}
+
+nav ul {
+  text-align: center;
+  margin: 0 0 50px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  font: 700 26px 'Nunito', sans-serif;
+  box-sizing: border-box;
+  width: 150px;
+  color: #cacaca;
+}
+
+nav a,
+nav a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.active {
+  color: #6db9ff;
+}
+
+span {
+  margin: 0 29px;
+}
+
+main {
+  display: flex;
+  width: 820px;
+  margin: 125px auto 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main section:nth-child(1),
+main section:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+}
+
+main img {
+  margin: 0 0 50px 0;
+}
+
+main section:nth-child(1) {
+  margin: 0 0 50px 0;
+}
+
+h1, h2 {
+  font: 700 26px 'Nunito', sans-serif;
+}
+
+h1 {
+  margin: 0 0 45px 0;
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #3e59b2;
+  margin: 0 0 30px 0;
+}
+
+p {
+  text-align: center;
+  margin: 0 0 38px 0;
+}
+
+footer {
+  background-color: #e7e7e7;
+  padding: 90px 0 75px 0;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  width: 500px;
+  color: #b2b2b2;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+footer li {
+  margin: 0 65px;
+  overflow: hidden;
+}
+
+footer li a {
+  background-image: url("../images/icons_social-media.png");
+  width: 46px;
+  height: 46px;
+  overflow: hidden;
+  text-indent: -8685px;
+  display: block;
+}
+footer li:nth-child(2) a {
+  background-position: 0 92px;
+}
+footer li:nth-child(3) a {
+  background-position: 0 138px;
+}
+footer li:nth-child(4) a {
+  background-position: 0 184px;
+}
