@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Todo List</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <input id="nav-toggle" type="checkbox">
+    <nav>
+    <!-- Create a description list, set its width to 100% of the navigation bar, use padding to space-->
+      <dl>
+        <dt>
+          <div>
+            <img src="assets/images/all-todos.png">
+            <h1>All Todos</h1>
+          </div>
+          <p>18</p>
+        </dt>
+        <dd class="selected">
+          <p>02/16</p>
+          <p>8</p>
+        </dd>
+        <dd>
+          <p>03/16</p>
+          <p>2</p>
+        </dd>
+        <dd>
+          <p>04/16</p>
+          <p>1</p>
+        </dd>
+        <dd>
+          <p>05/16</p>
+          <p>1</p>
+        </dd>
+        <dd>
+          <p>06/16</p>
+          <p>6</p>
+        </dd>
+      </dl>
+      <dl>
+        <dt>
+          <div>
+            <img src="assets/images/done.png">
+            <h1>Completed</h1>
+          </div>
+        </dt>
+        <dd>
+          <p>02/15</p>
+        </dd>
+        <dd>
+          <p>03/15</p>
+        </dd>
+        <dd>
+          <p>04/15</p>
+        </dd>
+        <dd>
+          <p>05/15</p>
+        </dd>
+        <dd>
+          <p>06/15</p>
+        </dd>
+      </dl>
+    </nav>
+
+    <main>
+      <div class="list-header">
+        <label for="nav-toggle">
+          <img src="assets/images/hamburger.png">
+        </label>
+        <div>
+          <h1>02/16</h1>
+          <p>8</p>
+        </div>
+      </div>
+
+      <ul class="main-list">
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <div id="modal-overlay"></div>
+              <div id="modal-container">
+                <form action="/create" method="POST">
+                  <ul id="modal">
+                    <li>
+                      <label for="title-input">Title</label>
+                      <div>
+                        <input id="title-input" type="text">
+                      </div>
+                    </li>
+  
+                    <li>
+                      <label>Due Date</label>
+                      <div>
+                        <input id="day-input" type="text" placeholder="Day">
+                        <p>/</p>
+                        <input id="month-input" type="text" placeholder="Month">
+                        <p>/</p>
+                        <input id="year-input" type="text" placeholder="Year">
+                      </div>
+                    </li>
+  
+                    <li>
+                      <label for="description-input">Description</label>
+                      <textarea placeholder="Description"></textarea>
+                    </li>
+  
+                    <li>
+                      <label></label>
+                      <div>
+                        <button type="submit" value="submit-save">Save</button>
+                        <button type="submit" value="submit-complete">Mark as Complete</button>
+                      </div>
+                    </li>
+                  </ul>
+                </form>
+              </div>
+              <img src="assets/images/plus.png">
+            </label>
+            
+            <p>Add new to do</p>
+          </div>
+          
+        </li>
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <img src="assets/images/ticked-box.png">
+              <img src="assets/images/unticked-box.png">
+            </label>
+            <p>Item 1</p>
+          </div>
+          <img src="assets/images/trash.png">
+        </li>
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <img src="assets/images/ticked-box.png">
+              <img src="assets/images/unticked-box.png">
+            </label>
+            <p>Item 2</p>
+          </div>
+          <img src="assets/images/trash.png">
+        </li>
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <img src="assets/images/ticked-box.png">
+              <img src="assets/images/unticked-box.png">
+            </label>
+            <p>Item 3</p>
+          </div>
+          <img src="assets/images/trash.png">
+        </li>
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <img src="assets/images/ticked-box.png">
+              <img src="assets/images/unticked-box.png">
+            </label>
+            <p>Item 4</p>
+          </div>
+          <img src="assets/images/trash.png">
+        </li>
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <img src="assets/images/ticked-box.png">
+              <img src="assets/images/unticked-box.png">
+            </label>
+            <p>Item 5</p>
+          </div>
+          <img src="assets/images/trash.png">
+        </li>
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <img src="assets/images/ticked-box.png">
+              <img src="assets/images/unticked-box.png">
+            </label>
+            <p>Item 6</p>
+          </div>          
+          <img src="assets/images/trash.png">
+        </li>
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <img src="assets/images/ticked-box.png">
+              <img src="assets/images/unticked-box.png">
+            </label>
+            <p>Item 7</p>
+          </div>
+          <img src="assets/images/trash.png">
+        </li>
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <img src="assets/images/ticked-box.png">
+              <img src="assets/images/unticked-box.png">
+            </label>
+            <p>Item 8</p>
+          </div>
+          <img src="assets/images/trash.png">
+        </li>
+        <li>
+          <div>
+            <label>
+              <input type="checkbox">
+              <img src="assets/images/ticked-box.png">
+              <img src="assets/images/unticked-box.png">
+            </label>
+            <p>Item 9</p>
+          </div>
+          <img src="assets/images/trash.png">
+        </li>
+      </ul>
+      
+    </main>
+  </body>
+</html>

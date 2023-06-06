@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.section {
+  margin: 0 auto;
+  padding-bottom: 60px;
+  border-top: 1px solid #efefef;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.section h1 {
+  font-size: 48px;
+  font-weight: 300;
+  margin: 1.236em 0 0.618em;
+}
+
+p {
+  font-size: 16px;
+  color: #444444ad;
+  margin: 0 0 17px 0;
+}
+
+input[type="button"] {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 30px;
+  border: none;
+  cursor: pointer;
+}
+
+/*Navigation Bar*/
+nav {
+  position: fixed;
+  background-color: white;
+  margin: 0 auto;
+  padding: 10px 0 0 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+
+nav ul {
+  text-align: center;
+  max-width: 960px;
+  margin: 0 auto;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  font-size: 13px;
+  margin: 0 25px;
+}
+
+nav a {
+  line-height: 44px;
+}
+
+/* Header */
+header {
+  background-image: url("http://2014.jsconfbr.org/images/front.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 150px 0 50px 0;
+  margin: 55px 0 0 0;
+}
+
+header h1,
+header h2 {
+  color: white;
+  font-weight: normal;
+}
+
+header h1 {
+  font-size: 72px;
+  top: 150px;
+}
+
+header h2 {
+  font-size: 32px;
+}
+
+/* Main | Tickets */
+
+/* Main | Speakers */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "s1  s2  s3"
+    "s4  s5  s6"
+    "s7  s8  s9"
+    "s10 s11 s12";
+  grid-gap: 10px;
+}
+
+.hover-text {
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hover-text p {
+  text-align: center;
+  font-size: 12px;
+  color: white;  
+  width: 80%;
+}
+
+.speaker {
+  position: relative;
+  width: 280px;
+  height: 380px;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+}
+
+.speaker:hover > .hover-text {
+  opacity: 1;
+  position: absolute;
+  visibility: visible;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.915);
+}
+
+.speaker h2 {
+  color: green;
+  margin: 10px 0 4px 0;
+}
+
+.speaker-info {
+  padding: 0 10px;
+}
+
+.speaker img {
+  margin: 0 0 20px 0;
+}
+
+.speaker:nth-child(1) {
+  grid-area: s1;
+}
+.speaker:nth-child(2) {
+  grid-area: s2;
+}
+.speaker:nth-child(3) {
+  grid-area: s3;
+}
+.speaker:nth-child(4) {
+  grid-area: s4;
+}
+.speaker:nth-child(5) {
+  grid-area: s5;
+}
+.speaker:nth-child(6) {
+  grid-area: s6;
+}
+.speaker:nth-child(7) {
+  grid-area: s7;
+}
+.speaker:nth-child(8) {
+  grid-area: s8;
+}
+.speaker:nth-child(9) {
+  grid-area: s9;
+}
+.speaker:nth-child(10) {
+  grid-area: s10;
+}
+.speaker:nth-child(11) {
+  grid-area: s11;
+}
+.speaker:nth-child(12) {
+  grid-area: s12;
+}
+
+
+/* Main | Schedule */
+.schedule-container {
+  max-width: 960px;
+}
+
+.schedule-container ul {
+  list-style: none;
+}
+
+.schedule-container li {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-top: 1px solid #EFEFEF; 
+  align-items: center;
+}
+
+.schedule-container li:last-child {
+  border-bottom: 1px solid #EFEFEF;
+}
+.schedule-container li > * {
+  padding: 10px;
+}
+
+.schedule-container p {
+  font-size: 24px;
+  color: rgb(68, 68, 68);
+  margin: 0 0 10px 0;
+}
+.schedule-container p:nth-child(1) {
+  min-width: 60px;
+}
+
+.schedule-container img {
+  width: 130px;
+  align-self: flex-end;
+}
+
+.schedule-container div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 2;
+}
+
+.schedule-container div p:nth-child(2) {
+  font-size: 18px;
+  font-weight: bold;
+  color: green;
+}
+
+/* Main | Location */
+.location-container div {
+  width: 960px;
+}
+
+.location-container p {
+  color: rgb(68, 68, 68);
+}
+
+.location-container div:nth-of-type(1) p:nth-child(1) {
+  font-weight: bold;
+}
+
+.location-container iframe {
+  width: 100%;
+  margin: 0 0 30px 0;
+}
+
+/* Main | Call for Papers */
+.call-papers-container {
+  width: 960px;
+}
+
+.call-papers-container input {
+  margin: 0 0 10px;
+}
+
+/* Main | Sponsors */
+
+.sponsors-container {
+  max-width: 960px;
+}
+
+.sponsors-container p {
+  font-weight: bold;
+  font-size: 18px;
+  color: #444;
+  margin: 30px 0 4px 0;
+}
+
+.sponsors-container img {
+  margin: 0 40px 0 0;
+}
+
+.gold-sponsors img {
+  width: 300px;
+}
+
+.silver-sponsors img {
+  width: 240px;
+}
+
+.support-sponsors img {
+  width: 180px;
+}
+
+/* Footer */
+footer {
+  background-image: url("http://2014.jsconfbr.org/images/people.jpg");
+  padding: 0 0 60px 0;
+  height: 280px;
+}
+
+footer * {
+  color: white;
+  font-weight: 100;
+}
+
+footer h1 {
+  font-size: 48px;
+  text-align: center;
+  padding: 30px 0;
+}
+
+footer h2 {
+  font-size: 31px;
+}
+
+footer > div {
+  background: rgba(0, 0, 0, 0.623) no-repeat center 23%;
+  background-size: cover;
+  padding: 10px;
+}
+
+footer div div {
+  max-width: 960px;
+  display: block;
+  margin: 0 auto;
+}
+
+footer p:nth-of-type(1) {
+  margin-bottom: 20px;
+}
