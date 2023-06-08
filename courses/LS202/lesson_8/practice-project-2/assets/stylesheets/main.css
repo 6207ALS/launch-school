@@ -297,7 +297,6 @@ input:not(:checked) + div#modal-overlay {
 
 #modal li:nth-child(3) {
   grid-area: description;
-  
 }
 #modal li:nth-child(3) textarea {
   box-sizing: border-box;
@@ -325,4 +324,3 @@ input:not(:checked) + div#modal-overlay {
   margin: 0;
   height: fit-content;
 }
-
