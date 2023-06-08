@@ -41,7 +41,7 @@ function longestSentence(text) {
 } 
 
 function wordCount(sentence) {
-  return sentence.split(" ").length;
+  return sentence.split(/ +/).length;
 }
 
 function highestCount(wordCounts) {
@@ -49,7 +49,7 @@ function highestCount(wordCounts) {
 }
 
 function textSentences(text) {
-  return text.match(/\w[^.]+[.!?]/g);
+  return text.match(/\w[^.!?]*[.!?]/g);
 }
 
 longestSentence(longText);
