@@ -1,0 +1,26 @@
+JS230 DOM and Asynchronous Programming with JavaScript
+Lesson 1 | Practice Problems - A Hierarchy of Nodes
+
+// Q1
+False, the mapping between the tags that appear in an HTML file and the nodes
+in the DOM is NOT directly one-to-one. 
+
+The DOM will always attempt to correct mistakes found in the HTML file. As 
+such, an HTML file where one of the elements has a missing enclosing tag will 
+appear to have one in the browser as per the DOM. 
+
+In addition, the DOM could have nodes for text and whitespace that are not 
+necessarily specified in HTML files.
+
+
+// Q2
+True, text nodes can sometimes contain nothing but whitespace. These type of
+nodes are called "empty nodes." These nodes represent the gap/newline between
+the elements in the HTML markup. However, these empty nodes are not visible in
+the HTML.
+
+// Q3
+Refer to file "node-hierarchy.png" in current directory.
+
+// Q4
+Refer to file "node-hierarchy-text.png" in current directory.
