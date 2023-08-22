@@ -1,0 +1,68 @@
+<!-- JS230 - Front-end Development with JavaScript | Exercises --> 
+<!-- Making HTTP Requests: Cancellations -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="">
+    <meta charset="UTF-8">
+    <style>
+    </style>
+  </head>
+  <body>
+  </body>
+  <script>
+    const URL = `http://localhost:3000`;
+
+    function cancelSchedule(scheduleId) {
+      return new Promise((resolve, reject) => {
+        let request = new XMLHttpRequest();
+        let data = JSON.stringify({ schedule_id: Number(scheduleId) });
+
+        request.open("DELETE", `${URL}/api/schedules/${scheduleId}`);
+        request.setRequestHeader("Content-Type", "application/json");
+
+        request.addEventListener("load", event => {
+          switch (request.status) {
+            case 403:
+            case 404:
+              resolve(false);
+              break;
+
+            case 204:
+              resolve(true);
+              break;
+          }
+        });
+
+        request.send(data);
+      });
+    }
+
+    function cancelBooking(bookingId) {
+      return new Promise((resolve, reject) => {
+        let request = new XMLHttpRequest();
+        let data = JSON.stringify({ booking_id: Number(bookingId) });
+
+        request.open("PUT", `${URL}/api/bookings/${bookingId}`);
+        request.setRequestHeader("Content-Type", "application/json");
+
+        request.addEventListener("load", event => {
+          switch (request.status) {
+            case 404:
+              resolve(false);
+              break;
+
+            case 204:
+              resolve(true);
+              break;
+          }
+        });
+
+        request.send(data);
+      });
+    }
+
+  </script>
+</html>

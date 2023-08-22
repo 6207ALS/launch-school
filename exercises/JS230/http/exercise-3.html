@@ -1,0 +1,50 @@
+<!-- JS230 - Front-end Development with JavaScript | Exercises --> 
+<!-- Making HTTP Requests: Adding Staff -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <form action="/api/staff_members" method="POST">
+      <label for="email">Email: </label>
+      <input type="text" id="email" name="email">
+      
+      <label for="name">Name: </label>
+      <input type="text" id="name" name="name">
+
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      const URL = "http://localhost:3000";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let form = document.querySelector("form");
+        let emailInput = document.querySelector("#email");
+        let nameInput = document.querySelector("#name");
+
+        form.addEventListener("submit", event => {
+          event.preventDefault();
+
+          if (!emailInput.value.trim() || !nameInput.value.trim()) {
+            return alert("Staff can not be created. Check your inputs");
+          }
+
+          let data = new FormData(form);
+          let request = new XMLHttpRequest();
+
+          request.open(form.method, `${URL}/api/staff_members`);
+          request.addEventListener("load", event => {
+            let id = JSON.parse(request.response).id;
+            alert(`Successfully created staff with id: ${id}`);
+          });
+
+          request.send(data);
+        });
+      });
+    </script>
+  </body>
+</html>

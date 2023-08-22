@@ -1,0 +1,203 @@
+<!-- JS230 - Front-end Development with JavaScript | Exercises --> 
+<!-- Making HTTP Requests: Booking Time Slots -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="">
+    <meta charset="UTF-8">
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      html {
+        padding: 25px;
+      }
+
+      fieldset {
+        border-style: none;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      li {
+        margin: 10px 0;
+      }
+
+      .invisible {
+        display: none;
+      }
+
+      #student-form {
+        background-color: rgb(192, 192, 192);
+        margin-top: 20px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <form action="/api/bookings" method="POST" id="schedule-form">
+      <h1>Schedules</h1>
+      <fieldset>
+        <ul>
+          <li>
+            <label for="schedules-select">Please select one schedule</label>
+            <select id="schedules-select"></select>
+          </li>
+          <li>
+            <label for="schedules-email">Email:</label>
+            <input type="email" id="schedules-email">
+          </li>
+          <li>
+            <button type="submit">Submit</button>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+
+    <form action="/api/students" method="POST" id="student-form" class="invisible">
+      <h1>Please provide new student details</h1>
+      <fieldset>
+        <ul>
+          <li>
+            <label for="student-email">Email:</label>
+            <input type="email" id="student-email">
+          </li>
+          <li>
+            <label for="student-name">Name:</label>
+            <input type="text" id="student-name">
+          </li>
+          <li>
+            <label for="student-booking">Booking Sequence:</label>
+            <input type="text" id="student-booking">
+          </li>
+          <li>
+            <button type="submit">Submit</button>
+          </li>
+        </ul>
+      </fieldset>
+    </form>
+
+    <script>
+      const URL = "http://localhost:3000";
+      let availableSchedules = [];
+      let staffs = {};
+      let bookingSequence;
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let scheduleForm = document.querySelector("#schedule-form");
+        let selectElement = document.querySelector("#schedules-select");
+        let scheduleEmailInput = document.querySelector("#schedules-email");
+
+        let studentForm = document.querySelector("#student-form");
+        let studentEmailInput = document.querySelector("#student-email");
+        let studentNameInput = document.querySelector("#student-name");
+        let bookingSequenceInput = document.querySelector("#student-booking");
+
+        // retrieve all available schedules
+        (function() {
+          let request = new XMLHttpRequest();
+          request.open("GET", `${URL}/api/schedules`);
+
+          request.addEventListener("load", event => {
+            let response = JSON.parse(request.response);
+            response = response.filter(schedule => schedule.student_email === null);
+            availableSchedules = response;
+          });
+
+          request.send();
+        })();
+
+        // retrieve staff members info
+        (function() {
+          let request = new XMLHttpRequest();
+          request.open("GET", `${URL}/api/staff_members`);
+
+          request.addEventListener("load", event => {
+            let response = JSON.parse(request.response);
+            
+            response.forEach(staff => staffs[staff.id] = staff.name);
+
+            availableSchedules.forEach(schedule => {
+              schedule.staff_name = staffs[schedule.staff_id];
+            });
+
+            availableSchedules.forEach(schedule => {
+              let option = document.createElement("option");
+              option.textContent = `${schedule.staff_name} | ${schedule.date} | ${schedule.time}`;
+              option.value = schedule.id;
+              selectElement.appendChild(option);
+            });
+          });
+
+          request.send();
+        })();
+
+        scheduleForm.addEventListener("submit", event => {
+          event.preventDefault();
+          let data = JSON.stringify({
+            id: Number(selectElement.value),
+            student_email: String(scheduleEmailInput.value),
+          });
+
+          let request = new XMLHttpRequest();
+          request.open("POST", scheduleForm.action);
+
+          request.setRequestHeader("Content-Type", "application/json");
+          request.addEventListener("load", event => {
+            let response = request.response;
+            switch (request.status) {
+              case 404:
+                alert(response);
+                if (response.match(/student does not exist/i)) {
+                  bookingSequence = Number(response.match(/\d+/));
+                  bookingSequenceInput.value = String(bookingSequence);
+                  studentEmailInput.value = scheduleEmailInput.value;
+                  studentForm.classList.toggle("invisible");
+                }
+                break;
+              case 204:
+                alert("Booked");
+                break;
+            }
+          });
+
+          request.send(data);
+        });
+
+        studentForm.addEventListener("submit", event => {
+          event.preventDefault();
+
+          let name = String(studentNameInput.value).trim();
+          let email = String(studentEmailInput.value).trim();
+          let booking_sequence = String(bookingSequenceInput.value).trim();
+          if (!(name && email && booking_sequence)) return alert("Please check your inputs");
+
+          let data = JSON.stringify({ name, email, booking_sequence: Number(booking_sequence)});
+          console.log(data);
+
+          let request = new XMLHttpRequest();
+          request.open("POST", studentForm.action);
+          request.setRequestHeader("Content-Type", "application/json");
+
+          request.addEventListener("load", event => {
+            alert(request.response);
+            if (request.status === 201) {
+              scheduleEmailInput.value = email;
+              scheduleForm.dispatchEvent(new Event("submit"));
+            }
+          });
+
+          request.send(data);
+        });
+
+      });
+    </script>
+  </body>
+</html>
+

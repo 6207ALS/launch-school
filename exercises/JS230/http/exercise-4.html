@@ -1,0 +1,153 @@
+<!-- JS230 - Front-end Development with JavaScript | Exercises --> 
+<!-- Making HTTP Requests: Adding Schedules -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="">
+    <meta charset="UTF-8">
+    <style>
+      form {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+      }
+
+      fieldset {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 0;
+      }
+
+      input {
+        margin: 0 0 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="add-schedule_button">Add more schedules</button>
+    <div id="schedules_wrapper">
+      <form id="schedules_form" action="/api/schedules" method="POST">
+        
+      </form>
+      <button type="submit" form="schedules_form" id="submit-schedules_button">Submit</button>
+    </div>
+    
+    
+    <script>
+      const URL = "http://localhost:3000";
+      let staffs = [];
+
+      (function () {
+        let request = new XMLHttpRequest();
+        request.open("GET", `${URL}/api/staff_members`);
+        request.addEventListener("load", event => {
+          let response = JSON.parse(request.response);
+          response.forEach(staff => {
+            staffs.push({ id: staff.id, name: staff.name, email: staff.email });
+          });
+        });
+        request.send();
+      })();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        let schedulesForm = document.querySelector("#schedules_form");
+        let addScheduleButton = document.querySelector("#add-schedule_button");
+
+        function createScheduleFieldset(staffs) {
+          let nthSchedule = schedulesForm.children.length + 1;
+          let fieldset = document.createElement("fieldset");
+          let legend = document.createElement("legend");
+          legend.textContent = `Schedule ${nthSchedule}`;
+          fieldset.appendChild(legend);
+
+          let staffNameLabel = document.createElement("label");
+          let staffNameSelect = document.createElement("select");
+          staffNameLabel.control = staffNameSelect;
+          staffNameLabel.textContent = "Staff Name : ";
+          staffNameSelect.setAttribute("id", `staffSelect-${nthSchedule}`);
+          staffNameSelect.setAttribute("name", `staffSelect-${nthSchedule}`);
+          staffs.forEach(staff => {
+            let option = document.createElement("option");
+            option.textContent = staff.name;
+            option.setAttribute("value", staff.id);
+            staffNameSelect.appendChild(option);
+          }) 
+
+          let dateLabel = document.createElement("label");
+          let dateInput = document.createElement("input");
+          dateLabel.control = dateInput;
+          dateLabel.textContent = "Date : ";
+          dateInput.setAttribute("type", "date");
+          dateInput.setAttribute("id", `dateInput-${nthSchedule}`);
+          dateInput.setAttribute("name", `dateInput-${nthSchedule}`);
+
+          let timeLabel = document.createElement("label");
+          let timeInput = document.createElement("input");
+          timeLabel.control = timeInput;
+          timeLabel.textContent = "Time : ";
+          timeInput.setAttribute("type", "time");
+          timeInput.setAttribute("id", `timeInput-${nthSchedule}`);
+          timeInput.setAttribute("name", `timeInput-${nthSchedule}`);
+
+          fieldset.appendChild(staffNameLabel);
+          fieldset.appendChild(staffNameSelect);
+          fieldset.appendChild(dateLabel);
+          fieldset.appendChild(dateInput);
+          fieldset.appendChild(timeLabel);
+          fieldset.appendChild(timeInput);
+
+          return fieldset;
+        }
+
+        function formInputsToJson() {
+          let json = { "schedules": [] };
+          let form = document.querySelector("form");
+          const NUM_OF_SCHEDULES = form.children.length;
+          for (let i = 1; i <= NUM_OF_SCHEDULES; i++) {
+            let schedule = {
+              staff_id: form[`staffSelect-${i}`].value,
+              date: form[`dateInput-${i}`].value,
+              time: form[`timeInput-${i}`].value
+            }
+            json["schedules"].push(schedule);
+          }
+          return json;
+        }
+
+        addScheduleButton.addEventListener("click", event => {
+          event.preventDefault();
+
+          let fieldset = createScheduleFieldset(staffs);
+          schedulesForm.appendChild(fieldset);
+        });
+
+        schedulesForm.addEventListener("submit", event => {
+          event.preventDefault();
+          let formChildrenArr = Array.prototype.slice.call(schedulesForm.children);
+          let formFieldsets = formChildrenArr.filter(element => {
+            return element.tagName === "FIELDSET";
+          });
+
+          let json = JSON.stringify(formInputsToJson());
+          let request = new XMLHttpRequest();
+          request.open("POST", schedulesForm.action);
+          request.setRequestHeader('Content-Type', 'application/json');
+          request.addEventListener("load", event => {
+            switch (request.status) {
+              case 400:
+                return alert("Please check your inputs");
+              case 201:
+                return alert("Schedules added");
+            }
+          });
+          request.send(json);
+        });
+        
+      });
+    </script>
+  </body>
+</html>
+

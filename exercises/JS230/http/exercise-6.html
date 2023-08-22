@@ -1,0 +1,153 @@
+<!-- JS230 - Front-end Development with JavaScript | Exercises --> 
+<!-- Making HTTP Requests: Viewing Bookings -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="">
+    <meta charset="UTF-8">
+    <style>
+      dl {
+        list-style: circle;
+      }
+
+      .invisible {
+        display: none;
+      }
+
+      .first-level-li:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Bookings</h1>
+
+    
+  </body>
+  <script>
+    const URL = "http://localhost:3000";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      
+      main();
+
+      async function main() {
+        let bookings = await createBookings();
+        createBookingsList(bookings);
+      }
+
+      async function createBookings() {
+        let bookings = await getBookings();
+        bookings = await addStaffNames(bookings);
+
+        return bookings;
+      }
+
+      async function createBookingsList(bookings) {
+        let firstLevelList = document.createElement("ul");
+
+        bookings.forEach(booking => {
+          let firstLevelListItem = document.createElement("li");
+          firstLevelListItem.classList.add("first-level-li");
+          let date = document.createTextNode(booking.date);
+          firstLevelListItem.appendChild(date);
+          
+          let secondLevelList = document.createElement("ul");
+          secondLevelList.classList.add("invisible");
+          let secondLevelListItem = document.createElement("li");
+
+          secondLevelListItem.textContent = bookingDetails(booking);
+          secondLevelList.appendChild(secondLevelListItem);
+
+          firstLevelListItem.appendChild(secondLevelList);
+          firstLevelList.appendChild(firstLevelListItem);
+        });
+
+        document.body.appendChild(firstLevelList);
+      }
+
+      function bookingDetails(booking) {
+        return `${booking.staff_name} | ${booking.student_email} | ${booking.time}`;
+      }
+
+      function dateToString(date) {
+        let month = String(date.getMonth() + 1).padStart(2, "0");
+        let day = String(date.getDate()).padStart(2, "0");
+        let year = String(date.getFullYear()).slice(-2).padStart(2, "0");
+
+        return `${month}-${day}-${year}`;
+      }
+
+      function formatDates(bookings) {
+        bookings.forEach(booking => {
+          booking.date = dateToString(new Date(booking.date));
+        });
+      }
+
+      function groupBookings(bookings) {
+        let result = {};
+
+        bookings.forEach(booking => {
+          if (!(result.hasOwnProperty(booking.date))) {
+            bookings[booking.date] = [];
+          }
+
+          result[booking.date].push(booking);
+        })
+        
+        return result;
+      }
+
+      function getBookings() {
+        return new Promise(resolve => {
+          let request = new XMLHttpRequest();
+          request.open("GET", `${URL}/api/schedules`);
+
+          request.addEventListener("load", event => {
+            let response = JSON.parse(request.response);
+            let bookings = response.filter(schedule => schedule.student_email !== null);
+
+            formatDates(bookings);
+            resolve(bookings);
+          });
+
+          request.send();
+        });
+      }
+
+      function addStaffNames(bookings) {
+        return new Promise(resolve => {
+          let request = new XMLHttpRequest();
+          request.open("GET", `${URL}/api/staff_members`);
+
+          request.addEventListener("load", event => {
+            let response = JSON.parse(request.response);
+            let staffs = {};
+            
+            response.forEach(staff => staffs[staff.id] = staff.name);
+
+            bookings.forEach(schedule => {
+              schedule.staff_name = staffs[schedule.staff_id];
+            });
+
+            resolve(bookings);
+          });
+
+          request.send();
+        }); 
+      }
+
+      document.body.addEventListener("click", event => {
+        let target = event.target;
+
+        if (target.className === "first-level-li") {
+          let secondLevelList = target.children[0];
+          secondLevelList.classList.toggle("invisible");
+        }
+      });
+    });
+  </script>
+
+</html>
