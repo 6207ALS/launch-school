@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<!-- JS230 DOM and Asynchronous Programming with JavaScript | JavaScript Libraries --> 
+<!-- Practice Problems: Handlbars Basics --> 
+<html lang="en">
+	<head>
+		<title>Handlebars Basics</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+		<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+
+		<script id="post" type="text/x-handlebars">
+			<article>
+				<h1>{{title}}</h1>
+				<p><time>Posted on {{published}}</time></p>
+				{{{body}}}
+				{{#if tags}}
+				<footer>
+					<p>Tags:</p>
+						{{#each tags}}
+							{{> tag}}
+						{{/each}}
+				</footer>
+				{{else}}
+				<p>Not tagged</p>
+				{{/if}}
+			</article>
+		</script>
+
+		<script id="tag" type="text/x-handlebars">
+			<div><strong>#{{this}}</strong></div>
+		</script>
+		
+		<script id="posts" type="text/x-handlebars">
+			{{#each posts}}
+				{{> post}}
+			{{/each}}
+		</script>
+
+		<script src="handlebars-basics-pp.js"></script>
+	</body>
+</html>

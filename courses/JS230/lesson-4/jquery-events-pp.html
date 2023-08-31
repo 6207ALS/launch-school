@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<!-- JS230 DOM and Asynchronous Programming with JavaScript | JavaScript Libraries --> 
+<!-- Practice Problems: jQuery Events --> 
+<html lang="en">
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<form>
+			<input type="text" maxlength="1"> 
+			<input type="submit">
+		</form>
+		<p><a href="#">Toggle accordian</a></p>
+		<div id="accordion">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus pretium purus ac rutrum efficitur. Vivamus volutpat, nisl et tristique lobortis, purus felis feugiat ex, sit amet ultrices ligula felis mollis justo. Sed fringilla at sem in efficitur. Pellentesque ornare, magna ut varius egestas, justo tortor varius libero, sed consectetur felis lorem et odio. Morbi sed scelerisque nulla, sit amet tempus erat. Proin lobortis dolor at velit luctus, eget vulputate odio tempor. Proin fermentum diam erat, et molestie neque auctor id. Nullam eu mi mattis metus tincidunt ultrices.</p>
+		</div>
+		<script>
+			$(function() {
+				let $form = $("form");
+				let $input = $("input[type='text']");
+				let $anchor = $("a");
+
+				$form.on("submit", function(event) {
+					event.preventDefault();
+					let character = $input.val();
+					$(document).off("keypress").on("keypress", function(event) {
+						if (event.key !== character) return;
+						$anchor.trigger("click");
+					});
+				});
+
+				$anchor.on("click", function(event) {
+					event.preventDefault();
+					$("#accordion").slideToggle();
+				});
+			});
+		</script>
+	</body>
+</html>
+

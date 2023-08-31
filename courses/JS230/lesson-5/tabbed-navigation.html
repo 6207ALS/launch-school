@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<!-- JS230 Lesson 5: Putting it All Together -->
+<!-- HTML Data Attributes -->
+<html lang="en">
+	<head>
+		<title>Tabbed Navigation</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="">
+		<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			article + article {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><a href="#" data-block="gold">Gold Sponsors</a></li>
+			<li><a href="#" data-block="silver">Silver Sponsors</a></li>
+			<li><a href="#" data-block="bronze">Bronze Sponsors</a></li>
+		</ul>
+		
+		<article data-block="gold">
+			<h1>Gold Sponsors</h1>
+		</article>
+		
+		<article data-block="silver">
+			<h1>Silver Sponsors</h1>
+		</article>
+		
+		<article data-block="bronze">
+			<h1>Bronze Sponsors</h1>
+		</article>
+
+		<script>
+			$("a").on("click", function(event) {
+				event.preventDefault();
+				$(`article[data-block=${$(event.target).attr("data-block")}]`).show();
+				$("article").filter(function(index) {
+					return $(this).attr("data-block") !== $(event.target).attr("data-block");
+				}).hide();
+			});
+		</script>
+
+	</body>
+</html>
