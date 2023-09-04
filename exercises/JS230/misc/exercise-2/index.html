@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Exercise 2 | Programming Languages Info</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./assets/stylesheets/index.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+		<script src="./assets/javascripts/app.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<h1>Programming Languages</h1>
+	  <div id="languages"></div>
+
+		<script id="languages-template" type="text/x-handlebars">
+			{{#each languages}}
+				{{> language}}
+			{{/each}}
+		</script> 
+
+		<script id="language-partial" type="text/x-handlebars">
+			<div class="lang" data-lang="{{name}}">
+				<h2>{{name}}</h2>
+				<p id="{{name}}-description">{{less}}</p>
+				<a href="#" class="more">Show More</a>
+			</div>
+		</script>
+
+	</body>
+</html>
