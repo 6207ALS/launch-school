@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>**Contact Manager</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="./assets/stylesheets/reset.css">
+		<link rel="stylesheet" href="./assets/stylesheets/index.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
+		<script src="./assets/javascripts/app.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+		<header>
+			<h1>Contact Manager</h1>
+			<h2>Using the DOM, built-in Web APIs, and Handlebar</h2>
+		</header>
+
+		<main>
+			<div id="swap-container">
+				<section id="contacts-section">
+					<div id="navigation-bar">
+						<div class="filter-container">
+							<button id="create-contact-btn" data-for="tags" data-type="create">Create Tag</button>
+							<button id="add-contact-btn" data-for="contacts" data-type="create">Create Contact</button>
+						</div>
+						<div class="filter-container">
+							<div>
+								<p>Filter By Tag:</p>
+								<select id="tags-filter-select">
+								</select>
+							</div>
+							<div>
+								<p>Filter By Name:</p>
+								<input type="text" id="search-contact-input" placeholder="Search">
+							</div>
+						</div>
+					</div>
+					<div id="contacts-container"></div>
+				</section>
+				
+				<section id="contact-form-section">
+					<h1 id="contact-form-title"></h1>
+					<form id="contact-form" data-id="" class="" action="">
+					</form>
+				</section>
+
+				<section id="tag-form-section">
+					<h1>Create A Tag</h1>
+					<form id="tag-form">
+						<div>
+							<label for="tag_name">Tag name:</label>
+							<input id="tag_name" name="tag_name">
+							<p id="tag_name-message" data-field="tag name"></p>
+						</div>
+						
+						<div>
+							<button id="tag-form-submit-btn" data-for="tags" data-type="submit">Submit</button>
+							<button id="tag-form-cancel-btn" data-type="cancel">Cancel</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		</main>
+
+		<footer>
+			<p>A practice project developed by Allen Lee</p>
+		</footer>
+
+		<script id="contacts" data-type="template" type="text/x-handlebars">
+			{{#if contacts}}
+				{{#each contacts}}
+					{{> contact}}
+				{{/each}}
+			{{else}}
+				<div>
+					{{#if searchValue}}
+						<h3>There are no contacts starting with <b>{{searchValue}}</b>.</h3>
+					{{/if}}
+					
+					{{#if tag}}
+						<h3>There are no contacts with the <b>{{tag}}</b> tag.</h3>
+					{{/if}}
+				</div>
+			{{/if}}
+		</script>
+
+		<script id="tags" data-type="template" type="text/x-handlebars">
+			{{#each tags}}
+			<option value={{this}}>{{this}}</option>	
+			{{/each}}
+		</script>
+
+		<script id="contact-form-template" data-type="template" type="text/x-handlebars">
+			<label for="full_name">Full Name:</label>
+			<input id="full_name" name="full_name" value="{{contactInfo.full_name}}">
+			<p id="full_name-message" data-field="name"></p>
+	
+			<label for="email">Email address:</label>
+			<input id="email" name="email" value="{{contactInfo.email}}">
+			<p id="email-message" data-field="valid email"></p>
+
+			<label for="phone_number">Telephone number</label>
+			<input id="phone_number" name="phone_number" value="{{contactInfo.phone_number}}">
+			<p id="phone_number-message" data-field="phone"></p>
+
+			<label for="add-tag">Add tag:</label>
+			<select id="add-tag" name="tags">
+				{{#each tags}}
+				<option value={{this}}>{{this}}</option>	
+				{{/each}}
+			</select>
+			<p id="add-tags-message"></p>
+	
+			{{#if contactInfo}}
+			<label for="user-tags">{{contactInfo.full_name}} Tags:</label>
+			<p id="user-tags">{{contactInfo.tags}}</p>
+			{{/if}}
+
+			<button id="contact-form-submit-btn" formmethod="" data-for="contacts" data-type="submit">Submit</button>
+			<button id="contact-form-cancel-btn" data-type="cancel">Cancel</button>
+		</script>
+
+		<script id="ui" data-type="template" type="text/x-handlebars">
+		</script>
+
+		<script id="contact" data-type="partial" type="text/x-handlebars">
+			<div class="contact-container" data-id={{id}}>
+				<div class="contact-header">
+					<h3>{{full_name}}</h3>
+				</div>
+				<div class="contact-body">
+					<div>
+						<p><b>Phone number:</b></p>
+						<p>{{phone_number}}<p>
+					</div>
+
+					<div>
+						<p><b>Email:</b></p>
+						<p>{{email}}<p>
+					</div>
+				</div>
+				<div class="contact-btn-wrapper">
+					<button class="edit-button" data-id="{{id}}" data-for="contacts" data-type="edit">Edit</button>
+					<button class="delete-button" data-id="{{id}}" data-for="contacts" data-type="delete">Delete</button>
+				</div>
+			</div>
+		</script>
+
+	</body>
+</html>

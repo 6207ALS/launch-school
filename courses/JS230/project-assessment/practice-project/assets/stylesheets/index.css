@@ -1,0 +1,207 @@
+* {
+	font-family: Helvetica Neue, Arial, sans-serif;
+}
+
+h1 {
+	font-size: 36px;
+	margin: 0 0 10px;
+	text-align: center;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 20px;
+	margin: 40px 0;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	padding: 30px 0;
+	background-image: linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
+	color: white;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+}
+
+footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 30px auto 0;
+	padding: 10px 0 0 0;
+
+	border-top: 1px solid gray;
+
+	text-align: center;
+}
+
+#navigation-bar {
+	background-color: rgb(245, 245, 245);
+	width: 100%;
+	padding: 20px 0;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+#navigation-bar button {
+	background-color: rgba(255, 255, 255, 0);
+	font-size: 17px;
+	margin-left: 10px;
+
+	border-radius: 7px;
+	border-color: rgb(122, 122, 122);
+	border-style: solid;
+	border-width: 1px;
+
+	box-sizing: border-box;
+	padding: 12px 16px;
+}
+
+#navigation-bar button:hover {
+	cursor: pointer;
+}
+
+#search-contact-input,
+#tags-filter-select {
+	width: 200px;
+	height: 30px;
+	padding: 2px 10px;
+
+	border-radius: 4px;
+	border-color: rgb(195, 195, 195);
+	border-style: solid;
+	border-width: 1px;
+}
+
+.filter-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.filter-container > div {	
+	margin-right: 20px;
+}
+
+#contacts-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.contact-container {
+	margin: 0 60px 0 0;
+}
+
+.contact-body div {
+	margin: 0 0 20px 0;
+}
+
+#contact-form-section {
+	text-align: center;
+}
+
+#contact-form {
+	width: 800px;
+	margin: auto;
+	text-align: right;
+
+	display: grid;
+	grid-template-columns: 20% 40% 40%;
+	grid-column-gap: 20px;
+	grid-row-gap: 10px;
+	grid-template-areas:
+		"name-label name-input name-input"
+		". name-message name-message"
+		"email-label email-input email-input"
+		". email-message email-message"
+		"phone-label phone-input phone-input"
+		". phone-message phone-message"
+		"add-tag-label tags-select tags-select"
+		". tag-message tag-message"
+		"user-tags-label tags-list tags-list"
+		". submit-button cancel-button";
+		
+}
+
+label[for="full-name"] { grid-area: name-label; }
+label[for="email"] { grid-area: email-label; }
+label[for="phone_number"] { grid-area: phone-label; }
+label[for="user-tags"] { grid-area: user-tags-label; }
+label[for*="add-tag"] { grid-area: add-tag-label; }
+
+#full_name { grid-area: name-input; }
+#email { grid-area: email-input; }
+#phone_number { grid-area: phone-input; }
+#user-tags { grid-area: tags-list; }
+select[id*="add-tag"] { grid-area: tags-select; }
+
+#full_name-message { grid-area: name-message; }
+#email-message { grid-area: email-message; }
+#phone_number-message { grid-area: phone-message; }
+#tag-message { grid-area: tag-message; }
+
+button[id="contact-form-submit-btn"] { grid-area: submit-button; }
+button[id="contact-form-cancel-btn"] { grid-area: cancel-button; }
+
+#contact-form p {
+	text-align: left;
+}
+
+#contact-form ul {
+	display: flex;
+	flex-direction: row;
+}
+
+#tag-form-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#tag-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#tag-form > * {
+	margin: 10px 5px 0 5px;
+}
+
+.invisible {
+	display: none !important;
+}
+
+@media (min-width: 768px) {
+  main,
+	footer {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  main,
+	footer {
+    width:970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  main,
+	footer {
+    width:1170px;
+  }
+}
